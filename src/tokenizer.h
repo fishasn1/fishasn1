@@ -2,7 +2,7 @@
 #define TOKENIZER_H_
 
 typedef enum {
-        RESERVE_WORD,
+        RESERVED_WORD,
 } TOKENIZER_TYPE_ENUM;
 
 
