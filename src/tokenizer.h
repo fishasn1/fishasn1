@@ -2,11 +2,19 @@
 #define TOKENIZER_H_
 
 typedef enum {
-        RESERVED_WORD,
-} TOKENIZER_TYPE_ENUM;
+        TOKEN_RESERVED_WORD,
+} TOKEN_TYPE_ENUM;
 
+typedef struct {
+        TOKEN_TYPE_ENUM type;
+        char *value;
+} token_t;
 
-void 
-tokenizer_init();
+typedef struct {
+    char *stream;
+    unsigned int pos;
+} tokenizer_t;
 
+char next_char(tokenizer_t *tokenizer);
+char peek_char(tokenizer_t *tokenizer);
 #endif /* TOKENIZER_H_ */
