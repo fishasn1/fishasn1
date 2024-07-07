@@ -61,8 +61,7 @@ match_reversed_word(tokenizer_t *tokenizer) {
         /* 
          * Check reserved words first 
          */
-        /* TODO: May need to reallocate more size for buffer dynamically */
-        buffer = (unsigned char*)malloc(1024);
+        buffer = (unsigned char*)malloc(50);
         while(!(is_white_space(current) || is_eof(current))) {
                 buffer[index] = current;
                 index++;
