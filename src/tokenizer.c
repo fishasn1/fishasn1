@@ -102,6 +102,27 @@ match_reserved_words(tokenizer_t *tokenizer) {
         } else if (strcmp((const char*)buffer, BY) == 0) {
                 token->type = TOKEN_BY;
                 token->value = buffer;
+        } else if (strcmp((const char*)buffer, CHARACTER) == 0) {
+                token->type = TOKEN_CHARACTER;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, CHOICE) == 0) {
+                token->type = TOKEN_CHOICE;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, CLASS) == 0) {
+                token->type = TOKEN_CLASS;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, COMPONENT) == 0) {
+                token->type = TOKEN_COMPONENT;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, COMPONENTS) == 0) {
+                token->type = TOKEN_COMPONENTS;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, CONSTRAINED) == 0) {
+                token->type = TOKEN_CONSTRAINED;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, CONTAINING) == 0) {
+                token->type = TOKEN_CONTAINING;
+                token->value = buffer;
         } else {
                 token->type = TOKEN_UNKNOWN;
                 token->value = buffer;

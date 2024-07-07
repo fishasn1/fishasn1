@@ -12,6 +12,13 @@
 #define BMPString "BMPString"
 #define BOOLEAN "BOOLEAN"
 #define BY "BY"
+#define CHARACTER "CHARACTER"
+#define CHOICE "CHOICE"
+#define CLASS "CLASS"
+#define COMPONENT "COMPONENT"
+#define COMPONENTS "COMPONENTS"
+#define CONSTRAINED "CONSTRAINED"
+#define CONTAINING "CONTAINING"
 
 typedef enum {
         TOKEN_ABSENT,
@@ -24,6 +31,13 @@ typedef enum {
         TOKEN_BMPString,
         TOKEN_BOOLEAN,
         TOKEN_BY,
+        TOKEN_CHARACTER,
+        TOKEN_CHOICE,
+        TOKEN_CLASS,
+        TOKEN_COMPONENT,
+        TOKEN_COMPONENTS,
+        TOKEN_CONSTRAINED,
+        TOKEN_CONTAINING,
         TOKEN_UNKNOWN
 } TOKEN_TYPE_ENUM;
 
