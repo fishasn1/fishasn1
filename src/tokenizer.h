@@ -2,17 +2,24 @@
 #define TOKENIZER_H_
 #include <stdbool.h>
 
+#define ABSENT "ABSENT"
+#define ABSTRACT_SYNTAX "ABSTRACT-SYNTAX"
+#define ALL "ALL"
+#define APPLICATION "APPLICATION"
+#define AUTOMATIC "AUTOMATIC"
+
 typedef enum {
         TOKEN_ABSENT,
         TOKEN_ABSTRACT_SYNTAX,
         TOKEN_ALL,
         TOKEN_APPLICATION,
-        TOKEN_AUTOMATIC
+        TOKEN_AUTOMATIC,
+        TOKEN_UNKNOWN
 } TOKEN_TYPE_ENUM;
 
 typedef struct {
         TOKEN_TYPE_ENUM type;
-        char *value;
+        unsigned char *value;
 } token_t;
 
 typedef struct {
@@ -20,7 +27,11 @@ typedef struct {
     unsigned int pos;
 } tokenizer_t;
 
+bool is_eof(char ch);
 bool is_white_space(char ch);
 char next_char(tokenizer_t *tokenizer);
 char peek_char(tokenizer_t *tokenizer);
+
+token_t*
+next_token(tokenizer_t *tokenizer);
 #endif /* TOKENIZER_H_ */

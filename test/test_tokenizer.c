@@ -3,6 +3,33 @@
 #include <stdbool.h>
 #include "tokenizer.h"
 
+void test_next_token() {
+        tokenizer_t tokenizer;
+        tokenizer.stream = "ABSENT ABSTRACT-SYNTAX ALL APPLICATION AUTOMATIC";
+        tokenizer.pos = 0;
+
+        token_t *token;
+
+        /* Test reversed words */
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_ABSENT);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_ABSTRACT_SYNTAX);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_ALL);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_APPLICATION);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_AUTOMATIC);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_UNKNOWN);
+}
+
 void 
 test_is_white_space() {
         assert(is_white_space(' ') == true);
@@ -86,4 +113,6 @@ main() {
         test_is_white_space();
         test_next_char();
         test_peer_char();
+
+        test_next_token();
 }
