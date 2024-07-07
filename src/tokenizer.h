@@ -2,7 +2,11 @@
 #define TOKENIZER_H_
 
 typedef enum {
-        TOKEN_RESERVED_WORD,
+        TOKEN_ABSENT,
+        TOKEN_ABSTRACT_SYNTAX,
+        TOKEN_ALL,
+        TOKEN_APPLICATION,
+        TOKEN_AUTOMATIC
 } TOKEN_TYPE_ENUM;
 
 typedef struct {
