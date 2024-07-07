@@ -5,7 +5,7 @@
 
 void test_next_token() {
         tokenizer_t tokenizer;
-        tokenizer.stream = "ABSENT ABSTRACT-SYNTAX ALL APPLICATION AUTOMATIC BEGIN BIT BMPString BOOLEAN BY CHARACTER CHOICE CLASS COMPONENT COMPONENTS CONSTRAINED CONTAINING";
+        tokenizer.stream = "ABSENT ABSTRACT-SYNTAX ALL APPLICATION AUTOMATIC BEGIN BIT BMPString BOOLEAN BY CHARACTER CHOICE CLASS COMPONENT COMPONENTS CONSTRAINED CONTAINING DATE DATE-TIME DEFAULT DEFINITIONS DURATION";
         tokenizer.pos = 0;
 
         token_t *token;
@@ -61,6 +61,21 @@ void test_next_token() {
 
         token = next_token(&tokenizer);
         assert(token->type == TOKEN_CONTAINING);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_DATE);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_DATE_TIME);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_DEFAULT);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_DEFINITIONS);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_DURATION);
 
         token = next_token(&tokenizer);
         assert(token->type == TOKEN_UNKNOWN);

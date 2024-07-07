@@ -123,6 +123,21 @@ match_reserved_words(tokenizer_t *tokenizer) {
         } else if (strcmp((const char*)buffer, CONTAINING) == 0) {
                 token->type = TOKEN_CONTAINING;
                 token->value = buffer;
+        } else if (strcmp((const char*)buffer, DATE) == 0) {
+                token->type = TOKEN_DATE;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, DATE_TIME) == 0) {
+                token->type = TOKEN_DATE_TIME;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, DEFAULT) == 0) {
+                token->type = TOKEN_DEFAULT;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, DEFINITIONS) == 0) {
+                token->type = TOKEN_DEFINITIONS;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, DURATION) == 0) {
+                token->type = TOKEN_DURATION;
+                token->value = buffer;
         } else {
                 token->type = TOKEN_UNKNOWN;
                 token->value = buffer;
