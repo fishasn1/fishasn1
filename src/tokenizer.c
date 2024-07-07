@@ -45,7 +45,7 @@ char peek_char(tokenizer_t *tokenizer) {
 }
 
 token_t*
-match_reversed_word(tokenizer_t *tokenizer) {
+match_reserved_words(tokenizer_t *tokenizer) {
         unsigned char current;
         unsigned char *buffer;
         unsigned int start_pos = tokenizer->pos;
@@ -95,7 +95,7 @@ match_reversed_word(tokenizer_t *tokenizer) {
 
 token_t*
 next_token(tokenizer_t *tokenizer) {
-        token_t *token = match_reversed_word(tokenizer);
+        token_t *token = match_reserved_words(tokenizer);
 
         return token;
 }
