@@ -48,7 +48,7 @@ token_t*
 match_reversed_word(tokenizer_t *tokenizer) {
         unsigned char current;
         unsigned char *buffer;
-        //unsigned int start_pos = tokenizer->pos;
+        unsigned int start_pos = tokenizer->pos;
         unsigned int index = 0;
         token_t *token = malloc(sizeof(token_t));
 
@@ -89,6 +89,7 @@ match_reversed_word(tokenizer_t *tokenizer) {
         } else {
                 token->type = TOKEN_UNKNOWN;
                 token->value = buffer;
+                tokenizer->pos = start_pos;
         }
         return token;
 }
