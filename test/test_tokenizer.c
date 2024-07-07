@@ -37,6 +37,10 @@ test_peer_char() {
         tokenizer.pos = 0;
 
         assert(next_char(&tokenizer) == 'C');
+
+        /* peer char */
+        assert(peek_char(&tokenizer) == 'H');
+                
         assert(next_char(&tokenizer) == 'H');
         assert(next_char(&tokenizer) == 'O');
         assert(next_char(&tokenizer) == 'I');
