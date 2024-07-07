@@ -138,6 +138,37 @@ match_reserved_words(tokenizer_t *tokenizer) {
         } else if (strcmp((const char*)buffer, DURATION) == 0) {
                 token->type = TOKEN_DURATION;
                 token->value = buffer;
+
+        } else if (strcmp((const char*)buffer, EMBEDDED) == 0) {
+                token->type = TOKEN_EMBEDDED;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, ENCODED) == 0) {
+                token->type = TOKEN_ENCODED;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, ENCODING_CONTROL) == 0) {
+                token->type = TOKEN_ENCODING_CONTROL;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, END) == 0) {
+                token->type = TOKEN_END;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, ENUMERATED) == 0) {
+                token->type = TOKEN_ENUMERATED;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, EXCEPT) == 0) {
+                token->type = TOKEN_EXCEPT;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, EXPLICIT) == 0) {
+                token->type = TOKEN_EXPLICIT;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, EXPORTS) == 0) {
+                token->type = TOKEN_EXPORTS;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, EXTENSIBILITY) == 0) {
+                token->type = TOKEN_EXTENSIBILITY;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, EXTERNAL) == 0) {
+                token->type = TOKEN_EXTERNAL;
+                token->value = buffer;
         } else {
                 token->type = TOKEN_UNKNOWN;
                 token->value = buffer;

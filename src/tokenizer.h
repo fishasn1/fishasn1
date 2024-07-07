@@ -1,5 +1,6 @@
 #ifndef TOKENIZER_H_
 #define TOKENIZER_H_
+
 #include <stdbool.h>
 
 #define ABSENT "ABSENT"
@@ -24,6 +25,16 @@
 #define DEFAULT "DEFAULT"
 #define DEFINITIONS "DEFINITIONS"
 #define DURATION "DURATION"
+#define EMBEDDED "EMBEDDED"
+#define ENCODED "ENCODED"
+#define ENCODING_CONTROL "ENCODING-CONTROL"
+#define END "END"
+#define ENUMERATED "ENUMERATED"
+#define EXCEPT "EXCEPT"
+#define EXPLICIT "EXPLICIT"
+#define EXPORTS "EXPORTS"
+#define EXTENSIBILITY "EXTENSIBILITY"
+#define EXTERNAL "EXTERNAL"
 
 typedef enum {
         TOKEN_ABSENT,
@@ -48,6 +59,16 @@ typedef enum {
         TOKEN_DEFAULT,
         TOKEN_DEFINITIONS,
         TOKEN_DURATION,
+        TOKEN_EMBEDDED,
+        TOKEN_ENCODED,
+        TOKEN_ENCODING_CONTROL,
+        TOKEN_END,
+        TOKEN_ENUMERATED,
+        TOKEN_EXCEPT,
+        TOKEN_EXPLICIT,
+        TOKEN_EXPORTS,
+        TOKEN_EXTENSIBILITY,
+        TOKEN_EXTERNAL,
         TOKEN_UNKNOWN
 } TOKEN_TYPE_ENUM;
 
