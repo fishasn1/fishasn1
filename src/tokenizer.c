@@ -23,7 +23,8 @@ is_white_space(char ch) {
         return false;
 }
 
-char next_char(tokenizer_t *tokenizer) {
+char 
+next_char(tokenizer_t *tokenizer) {
         char ch;
         if (tokenizer->pos <= strlen(tokenizer->stream) - 1) {
                 ch = tokenizer->stream[tokenizer->pos];
@@ -34,7 +35,8 @@ char next_char(tokenizer_t *tokenizer) {
         return ch;
 }
 
-char peek_char(tokenizer_t *tokenizer) {
+char 
+peek_char(tokenizer_t *tokenizer) {
         char ch;
         if (tokenizer->pos <= strlen(tokenizer->stream) - 1) {
                 ch = tokenizer->stream[tokenizer->pos];
