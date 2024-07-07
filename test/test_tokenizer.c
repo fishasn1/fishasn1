@@ -5,7 +5,7 @@
 
 void test_next_token() {
         tokenizer_t tokenizer;
-        tokenizer.stream = "ABSENT ABSTRACT-SYNTAX ALL APPLICATION AUTOMATIC";
+        tokenizer.stream = "ABSENT ABSTRACT-SYNTAX ALL APPLICATION AUTOMATIC BEGIN BIT BMPString BOOLEAN BY";
         tokenizer.pos = 0;
 
         token_t *token;
@@ -25,6 +25,21 @@ void test_next_token() {
 
         token = next_token(&tokenizer);
         assert(token->type == TOKEN_AUTOMATIC);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_BEGIN);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_BIT);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_BMPString);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_BOOLEAN);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_BY);
 
         token = next_token(&tokenizer);
         assert(token->type == TOKEN_UNKNOWN);

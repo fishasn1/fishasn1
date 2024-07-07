@@ -7,6 +7,11 @@
 #define ALL "ALL"
 #define APPLICATION "APPLICATION"
 #define AUTOMATIC "AUTOMATIC"
+#define BEGIN "BEGIN"
+#define BIT "BIT"
+#define BMPString "BMPString"
+#define BOOLEAN "BOOLEAN"
+#define BY "BY"
 
 typedef enum {
         TOKEN_ABSENT,
@@ -14,6 +19,11 @@ typedef enum {
         TOKEN_ALL,
         TOKEN_APPLICATION,
         TOKEN_AUTOMATIC,
+        TOKEN_BEGIN,
+        TOKEN_BIT,
+        TOKEN_BMPString,
+        TOKEN_BOOLEAN,
+        TOKEN_BY,
         TOKEN_UNKNOWN
 } TOKEN_TYPE_ENUM;
 

@@ -85,6 +85,21 @@ match_reserved_words(tokenizer_t *tokenizer) {
         } else if (strcmp((const char*)buffer, AUTOMATIC) == 0) {
                 token->type = TOKEN_AUTOMATIC;
                 token->value = buffer;
+        } else if (strcmp((const char*)buffer, BEGIN) == 0) {
+                token->type = TOKEN_BEGIN;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, BIT) == 0) {
+                token->type = TOKEN_BIT;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, BMPString) == 0) {
+                token->type = TOKEN_BMPString;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, BOOLEAN) == 0) {
+                token->type = TOKEN_BOOLEAN;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, BY) == 0) {
+                token->type = TOKEN_BY;
+                token->value = buffer;
         } else {
                 token->type = TOKEN_UNKNOWN;
                 token->value = buffer;
