@@ -27,8 +27,8 @@ char next_char(tokenizer_t *tokenizer) {
 
 char peek_char(tokenizer_t *tokenizer) {
         char ch;
-        if (tokenizer->pos + 1 <= strlen(tokenizer->stream) - 1) {
-                ch = tokenizer->stream[tokenizer->pos + 1];
+        if (tokenizer->pos <= strlen(tokenizer->stream) - 1) {
+                ch = tokenizer->stream[tokenizer->pos];
         } else {
                 ch = 0;
         }
