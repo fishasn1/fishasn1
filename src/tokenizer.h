@@ -35,6 +35,8 @@
 #define EXPORTS "EXPORTS"
 #define EXTENSIBILITY "EXTENSIBILITY"
 #define EXTERNAL "EXTERNAL"
+#define FALSE "FALSE"
+#define FROM "FROM"
 
 typedef enum {
         TOKEN_ABSENT,
@@ -69,6 +71,8 @@ typedef enum {
         TOKEN_EXPORTS,
         TOKEN_EXTENSIBILITY,
         TOKEN_EXTERNAL,
+        TOKEN_FALSE,
+        TOKEN_FROM,
         TOKEN_UNKNOWN
 } TOKEN_TYPE_ENUM;
 

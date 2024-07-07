@@ -169,6 +169,12 @@ match_reserved_words(tokenizer_t *tokenizer) {
         } else if (strcmp((const char*)buffer, EXTERNAL) == 0) {
                 token->type = TOKEN_EXTERNAL;
                 token->value = buffer;
+        } else if (strcmp((const char*)buffer, FALSE) == 0) {
+                token->type = TOKEN_FALSE;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, FROM) == 0) {
+                token->type = TOKEN_FROM;
+                token->value = buffer;
         } else {
                 token->type = TOKEN_UNKNOWN;
                 token->value = buffer;

@@ -5,7 +5,7 @@
 
 void test_next_token() {
         tokenizer_t tokenizer;
-        tokenizer.stream = "ABSENT ABSTRACT-SYNTAX ALL APPLICATION AUTOMATIC BEGIN BIT BMPString BOOLEAN BY CHARACTER CHOICE CLASS COMPONENT COMPONENTS CONSTRAINED CONTAINING DATE DATE-TIME DEFAULT DEFINITIONS DURATION EMBEDDED ENCODED ENCODING-CONTROL END ENUMERATED EXCEPT EXPLICIT EXPORTS EXTENSIBILITY EXTERNAL";
+        tokenizer.stream = "ABSENT ABSTRACT-SYNTAX ALL APPLICATION AUTOMATIC BEGIN BIT BMPString BOOLEAN BY CHARACTER CHOICE CLASS COMPONENT COMPONENTS CONSTRAINED CONTAINING DATE DATE-TIME DEFAULT DEFINITIONS DURATION EMBEDDED ENCODED ENCODING-CONTROL END ENUMERATED EXCEPT EXPLICIT EXPORTS EXTENSIBILITY EXTERNAL FALSE FROM";
 
         tokenizer.pos = 0;
 
@@ -108,6 +108,12 @@ void test_next_token() {
 
         token = next_token(&tokenizer);
         assert(token->type == TOKEN_EXTERNAL);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_FALSE);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_FROM);
 
         token = next_token(&tokenizer);
         assert(token->type == TOKEN_UNKNOWN);
