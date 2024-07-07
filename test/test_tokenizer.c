@@ -7,6 +7,8 @@ void
 test_is_white_space() {
         assert(is_white_space(' ') == true);
         assert(is_white_space('\t') == true);
+        assert(is_white_space('\r') == true);
+        assert(is_white_space('\n') == true);
         assert(is_white_space('a') != true);
 }
 
