@@ -1,6 +1,14 @@
 #include <assert.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include "tokenizer.h"
+
+void 
+test_is_white_space() {
+        assert(is_white_space(' ') == true);
+        assert(is_white_space('\t') == true);
+        assert(is_white_space('a') != true);
+}
 
 void 
 test_next_char() {
@@ -73,4 +81,7 @@ test_peer_char() {
 
 int
 main() {
+        test_is_white_space();
+        test_next_char();
+        test_peer_char();
 }

@@ -1,7 +1,18 @@
 #include <string.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 #include "tokenizer.h"
+
+
+bool 
+is_white_space(char ch) {
+        if (ch == 9 || ch == 10 || ch == 11 || ch == 12 || ch == 13 ||
+                        ch == 32) {
+                return true;
+        }
+        return false;
+}
 
 char next_char(tokenizer_t *tokenizer) {
         char ch;
