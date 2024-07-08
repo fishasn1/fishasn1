@@ -335,6 +335,12 @@ match_reserved_words(tokenizer_t *tokenizer) {
         } else if (strcmp((const char*)buffer, UTF8String) == 0) {
                 token->type = TOKEN_UTF8String;
                 token->value = buffer;
+        } else if (strcmp((const char*)buffer, VideotexString) == 0) {
+                token->type = TOKEN_VideotexString;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, VisibleString) == 0) {
+                token->type = TOKEN_VisibleString;
+                token->value = buffer;
         } else {
                 token->type = TOKEN_UNKNOWN;
                 token->value = buffer;
