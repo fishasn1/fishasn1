@@ -341,6 +341,9 @@ match_reserved_words(tokenizer_t *tokenizer) {
         } else if (strcmp((const char*)buffer, VisibleString) == 0) {
                 token->type = TOKEN_VisibleString;
                 token->value = buffer;
+        } else if (strcmp((const char*)buffer, WITH) == 0) {
+                token->type = TOKEN_WITH;
+                token->value = buffer;
         } else {
                 token->type = TOKEN_UNKNOWN;
                 token->value = buffer;

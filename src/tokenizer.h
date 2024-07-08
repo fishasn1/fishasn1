@@ -93,6 +93,7 @@
 #define UTF8String "UTF8String"
 #define VideotexString "VideotexString"
 #define VisibleString "VisibleString"
+#define WITH "WITH"
 
 typedef enum {
         TOKEN_ABSENT,
@@ -185,6 +186,7 @@ typedef enum {
         TOKEN_UTF8String,
         TOKEN_VideotexString,
         TOKEN_VisibleString,
+        TOKEN_WITH,
         TOKEN_UNKNOWN
 } TOKEN_TYPE_ENUM;
 
