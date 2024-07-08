@@ -233,6 +233,25 @@ match_reserved_words(tokenizer_t *tokenizer) {
         } else if (strcmp((const char*)buffer, NumericString) == 0) {
                 token->type = TOKEN_NumericString;
                 token->value = buffer;
+
+        } else if (strcmp((const char*)buffer, OBJECT) == 0) {
+                token->type = TOKEN_OBJECT;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, ObjectDescriptor) == 0) {
+                token->type = TOKEN_ObjectDescriptor;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, OCTET) == 0) {
+                token->type = TOKEN_OCTET;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, OF) == 0) {
+                token->type = TOKEN_OF;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, OID_IRI) == 0) {
+                token->type = TOKEN_OID_IRI;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, OPTIONAL) == 0) {
+                token->type = TOKEN_OPTIONAL;
+                token->value = buffer;
         } else {
                 token->type = TOKEN_UNKNOWN;
                 token->value = buffer;

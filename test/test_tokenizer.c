@@ -5,7 +5,7 @@
 
 void test_next_token() {
         tokenizer_t tokenizer;
-        tokenizer.stream = "ABSENT ABSTRACT-SYNTAX ALL APPLICATION AUTOMATIC BEGIN BIT BMPString BOOLEAN BY CHARACTER CHOICE CLASS COMPONENT COMPONENTS CONSTRAINED CONTAINING DATE DATE-TIME DEFAULT DEFINITIONS DURATION EMBEDDED ENCODED ENCODING-CONTROL END ENUMERATED EXCEPT EXPLICIT EXPORTS EXTENSIBILITY EXTERNAL FALSE FROM GeneralizedTime GeneralString GraphicString IA5String IDENTIFIER IMPLICIT IMPLIED IMPORTS INCLUDES INSTANCE INSTRUCTIONS INTEGER INTERSECTION ISO646String MAX MIN MINUS-INFINITY NOT-A-NUMBER NULL NumericString";
+        tokenizer.stream = "ABSENT ABSTRACT-SYNTAX ALL APPLICATION AUTOMATIC BEGIN BIT BMPString BOOLEAN BY CHARACTER CHOICE CLASS COMPONENT COMPONENTS CONSTRAINED CONTAINING DATE DATE-TIME DEFAULT DEFINITIONS DURATION EMBEDDED ENCODED ENCODING-CONTROL END ENUMERATED EXCEPT EXPLICIT EXPORTS EXTENSIBILITY EXTERNAL FALSE FROM GeneralizedTime GeneralString GraphicString IA5String IDENTIFIER IMPLICIT IMPLIED IMPORTS INCLUDES INSTANCE INSTRUCTIONS INTEGER INTERSECTION ISO646String MAX MIN MINUS-INFINITY NOT-A-NUMBER NULL NumericString OBJECT ObjectDescriptor OCTET OF OID-IRI OPTIONAL";
 
         tokenizer.pos = 0;
 
@@ -173,6 +173,26 @@ void test_next_token() {
 
         token = next_token(&tokenizer);
         assert(token->type == TOKEN_NumericString);
+
+
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_OBJECT);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_ObjectDescriptor);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_OCTET);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_OF);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_OID_IRI);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_OPTIONAL);
 
         token = next_token(&tokenizer);
         assert(token->type == TOKEN_UNKNOWN);

@@ -57,6 +57,12 @@
 #define NOT_A_NUMBER "NOT-A-NUMBER"
 #define _NULL "NULL"
 #define NumericString "NumericString"
+#define OBJECT "OBJECT"
+#define ObjectDescriptor "ObjectDescriptor"
+#define OCTET "OCTET"
+#define OF "OF"
+#define OID_IRI "OID-IRI"
+#define OPTIONAL "OPTIONAL"
 
 typedef enum {
         TOKEN_ABSENT,
@@ -113,6 +119,12 @@ typedef enum {
         TOKEN_NOT_A_NUMBER,
         TOKEN_NULL,
         TOKEN_NumericString,
+        TOKEN_OBJECT,
+        TOKEN_ObjectDescriptor,
+        TOKEN_OCTET,
+        TOKEN_OF,
+        TOKEN_OID_IRI,
+        TOKEN_OPTIONAL,
         TOKEN_UNKNOWN
 } TOKEN_TYPE_ENUM;
 
