@@ -72,6 +72,12 @@
 #define REAL "REAL"
 #define RELATIVE_OID "RELATIVE-OID"
 #define RELATIVE_OID_IRI "RELATIVE-OID-IRI"
+#define SEQUENCE "SEQUENCE"
+#define SET "SET"
+#define SETTINGS "SETTINGS"
+#define SIZE "SIZE"
+#define STRING "STRING"
+#define SYNTAX "SYNTAX"
 
 typedef enum {
         TOKEN_ABSENT,
@@ -143,6 +149,12 @@ typedef enum {
         TOKEN_REAL,
         TOKEN_RELATIVE_OID,
         TOKEN_RELATIVE_OID_IRI,
+        TOKEN_SEQUENCE,
+        TOKEN_SET,
+        TOKEN_SETTINGS,
+        TOKEN_SIZE,
+        TOKEN_STRING,
+        TOKEN_SYNTAX,
         TOKEN_UNKNOWN
 } TOKEN_TYPE_ENUM;
 

@@ -278,6 +278,24 @@ match_reserved_words(tokenizer_t *tokenizer) {
         } else if (strcmp((const char*)buffer, RELATIVE_OID_IRI) == 0) {
                 token->type = TOKEN_RELATIVE_OID_IRI;
                 token->value = buffer;
+        } else if (strcmp((const char*)buffer, SEQUENCE) == 0) {
+                token->type = TOKEN_SEQUENCE;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, SET) == 0) {
+                token->type = TOKEN_SET;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, SETTINGS) == 0) {
+                token->type = TOKEN_SETTINGS;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, SIZE) == 0) {
+                token->type = TOKEN_SIZE;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, STRING) == 0) {
+                token->type = TOKEN_STRING;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, SYNTAX) == 0) {
+                token->type = TOKEN_SYNTAX;
+                token->value = buffer;
         } else {
                 token->type = TOKEN_UNKNOWN;
                 token->value = buffer;
