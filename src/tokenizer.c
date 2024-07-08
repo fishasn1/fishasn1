@@ -317,6 +317,24 @@ match_reserved_words(tokenizer_t *tokenizer) {
         } else if (strcmp((const char*)buffer, TYPE_IDENTIFIER) == 0) {
                 token->type = TOKEN_TYPE_IDENTIFIER;
                 token->value = buffer;
+        } else if (strcmp((const char*)buffer, UNION) == 0) {
+                token->type = TOKEN_UNION;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, UNIQUE) == 0) {
+                token->type = TOKEN_UNIQUE;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, UNIVERSAL) == 0) {
+                token->type = TOKEN_UNIVERSAL;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, UniversalString) == 0) {
+                token->type = TOKEN_UniversalString;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, UTCTime) == 0) {
+                token->type = TOKEN_UTCTime;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, UTF8String) == 0) {
+                token->type = TOKEN_UTF8String;
+                token->value = buffer;
         } else {
                 token->type = TOKEN_UNKNOWN;
                 token->value = buffer;

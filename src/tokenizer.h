@@ -85,6 +85,12 @@
 #define TIME_OF_DAY "TIME-OF-DAY"
 #define TRUE "TRUE"
 #define TYPE_IDENTIFIER "TYPE-IDENTIFIER"
+#define UNION "UNION"
+#define UNIQUE "UNIQUE"
+#define UNIVERSAL "UNIVERSAL"
+#define UniversalString "UniversalString"
+#define UTCTime "UTCTime"
+#define UTF8String "UTF8String"
 
 typedef enum {
         TOKEN_ABSENT,
@@ -169,6 +175,12 @@ typedef enum {
         TOKEN_TIME_OF_DAY,
         TOKEN_TRUE,
         TOKEN_TYPE_IDENTIFIER,
+        TOKEN_UNION,
+        TOKEN_UNIQUE,
+        TOKEN_UNIVERSAL,
+        TOKEN_UniversalString,
+        TOKEN_UTCTime,
+        TOKEN_UTF8String,
         TOKEN_UNKNOWN
 } TOKEN_TYPE_ENUM;
 
