@@ -78,7 +78,6 @@ void test_next_token() {
         token = next_token(&tokenizer);
         assert(token->type == TOKEN_DURATION);
 
-
         token = next_token(&tokenizer);
         assert(token->type == TOKEN_EMBEDDED);
 
@@ -123,8 +122,6 @@ void test_next_token() {
 
         token = next_token(&tokenizer);
         assert(token->type == TOKEN_GraphicString);
-
-
 
         token = next_token(&tokenizer);
         assert(token->type == TOKEN_IA5String);
