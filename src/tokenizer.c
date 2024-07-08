@@ -175,6 +175,15 @@ match_reserved_words(tokenizer_t *tokenizer) {
         } else if (strcmp((const char*)buffer, FROM) == 0) {
                 token->type = TOKEN_FROM;
                 token->value = buffer;
+        } else if (strcmp((const char*)buffer, GeneralizedTime) == 0) {
+                token->type = TOKEN_GeneralizedTime;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, GeneralString) == 0) {
+                token->type = TOKEN_GeneralString;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, GraphicString) == 0) {
+                token->type = TOKEN_GraphicString;
+                token->value = buffer;
         } else {
                 token->type = TOKEN_UNKNOWN;
                 token->value = buffer;

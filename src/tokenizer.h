@@ -37,6 +37,9 @@
 #define EXTERNAL "EXTERNAL"
 #define FALSE "FALSE"
 #define FROM "FROM"
+#define GeneralizedTime "GeneralizedTime"
+#define GeneralString "GeneralString"
+#define GraphicString "GraphicString"
 
 typedef enum {
         TOKEN_ABSENT,
@@ -73,6 +76,9 @@ typedef enum {
         TOKEN_EXTERNAL,
         TOKEN_FALSE,
         TOKEN_FROM,
+        TOKEN_GeneralizedTime,
+        TOKEN_GeneralString,
+        TOKEN_GraphicString,
         TOKEN_UNKNOWN
 } TOKEN_TYPE_ENUM;
 
