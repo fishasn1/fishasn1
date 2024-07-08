@@ -224,6 +224,15 @@ match_reserved_words(tokenizer_t *tokenizer) {
         } else if (strcmp((const char*)buffer, MINUS_INFINITY) == 0) {
                 token->type = TOKEN_MINUS_INFINITY;
                 token->value = buffer;
+        } else if (strcmp((const char*)buffer, NOT_A_NUMBER) == 0) {
+                token->type = TOKEN_NOT_A_NUMBER;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, _NULL) == 0) {
+                token->type = TOKEN_NULL;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, NumericString) == 0) {
+                token->type = TOKEN_NumericString;
+                token->value = buffer;
         } else {
                 token->type = TOKEN_UNKNOWN;
                 token->value = buffer;

@@ -54,6 +54,9 @@
 #define MAX "MAX"
 #define MIN "MIN"
 #define MINUS_INFINITY "MINUS-INFINITY"
+#define NOT_A_NUMBER "NOT-A-NUMBER"
+#define _NULL "NULL"
+#define NumericString "NumericString"
 
 typedef enum {
         TOKEN_ABSENT,
@@ -107,6 +110,9 @@ typedef enum {
         TOKEN_MAX,
         TOKEN_MIN,
         TOKEN_MINUS_INFINITY,
+        TOKEN_NOT_A_NUMBER,
+        TOKEN_NULL,
+        TOKEN_NumericString,
         TOKEN_UNKNOWN
 } TOKEN_TYPE_ENUM;
 
