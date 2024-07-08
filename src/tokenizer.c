@@ -233,7 +233,6 @@ match_reserved_words(tokenizer_t *tokenizer) {
         } else if (strcmp((const char*)buffer, NumericString) == 0) {
                 token->type = TOKEN_NumericString;
                 token->value = buffer;
-
         } else if (strcmp((const char*)buffer, OBJECT) == 0) {
                 token->type = TOKEN_OBJECT;
                 token->value = buffer;
@@ -251,6 +250,24 @@ match_reserved_words(tokenizer_t *tokenizer) {
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, OPTIONAL) == 0) {
                 token->type = TOKEN_OPTIONAL;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, PATTERN) == 0) {
+                token->type = TOKEN_PATTERN;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, PDV) == 0) {
+                token->type = TOKEN_PDV;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, PLUS_INFINITY) == 0) {
+                token->type = TOKEN_PLUS_INFINITY;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, PRESENT) == 0) {
+                token->type = TOKEN_PRESENT;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, PrintableString) == 0) {
+                token->type = TOKEN_PrintableString;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, PRIVATE) == 0) {
+                token->type = TOKEN_PRIVATE;
                 token->value = buffer;
         } else {
                 token->type = TOKEN_UNKNOWN;

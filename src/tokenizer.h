@@ -63,6 +63,12 @@
 #define OF "OF"
 #define OID_IRI "OID-IRI"
 #define OPTIONAL "OPTIONAL"
+#define PATTERN "PATTERN"
+#define PDV "PDV"
+#define PLUS_INFINITY "PLUS-INFINITY"
+#define PRESENT "PRESENT"
+#define PrintableString "PrintableString"
+#define PRIVATE "PRIVATE"
 
 typedef enum {
         TOKEN_ABSENT,
@@ -125,6 +131,12 @@ typedef enum {
         TOKEN_OF,
         TOKEN_OID_IRI,
         TOKEN_OPTIONAL,
+        TOKEN_PATTERN,
+        TOKEN_PDV,
+        TOKEN_PLUS_INFINITY,
+        TOKEN_PRESENT,
+        TOKEN_PrintableString,
+        TOKEN_PRIVATE,
         TOKEN_UNKNOWN
 } TOKEN_TYPE_ENUM;
 

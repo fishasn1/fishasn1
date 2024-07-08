@@ -5,7 +5,7 @@
 
 void test_next_token() {
         tokenizer_t tokenizer;
-        tokenizer.stream = "ABSENT ABSTRACT-SYNTAX ALL APPLICATION AUTOMATIC BEGIN BIT BMPString BOOLEAN BY CHARACTER CHOICE CLASS COMPONENT COMPONENTS CONSTRAINED CONTAINING DATE DATE-TIME DEFAULT DEFINITIONS DURATION EMBEDDED ENCODED ENCODING-CONTROL END ENUMERATED EXCEPT EXPLICIT EXPORTS EXTENSIBILITY EXTERNAL FALSE FROM GeneralizedTime GeneralString GraphicString IA5String IDENTIFIER IMPLICIT IMPLIED IMPORTS INCLUDES INSTANCE INSTRUCTIONS INTEGER INTERSECTION ISO646String MAX MIN MINUS-INFINITY NOT-A-NUMBER NULL NumericString OBJECT ObjectDescriptor OCTET OF OID-IRI OPTIONAL";
+        tokenizer.stream = "ABSENT ABSTRACT-SYNTAX ALL APPLICATION AUTOMATIC BEGIN BIT BMPString BOOLEAN BY CHARACTER CHOICE CLASS COMPONENT COMPONENTS CONSTRAINED CONTAINING DATE DATE-TIME DEFAULT DEFINITIONS DURATION EMBEDDED ENCODED ENCODING-CONTROL END ENUMERATED EXCEPT EXPLICIT EXPORTS EXTENSIBILITY EXTERNAL FALSE FROM GeneralizedTime GeneralString GraphicString IA5String IDENTIFIER IMPLICIT IMPLIED IMPORTS INCLUDES INSTANCE INSTRUCTIONS INTEGER INTERSECTION ISO646String MAX MIN MINUS-INFINITY NOT-A-NUMBER NULL NumericString OBJECT ObjectDescriptor OCTET OF OID-IRI OPTIONAL PATTERN PDV PLUS-INFINITY PRESENT PrintableString PRIVATE";
 
         tokenizer.pos = 0;
 
@@ -174,8 +174,6 @@ void test_next_token() {
         token = next_token(&tokenizer);
         assert(token->type == TOKEN_NumericString);
 
-
-
         token = next_token(&tokenizer);
         assert(token->type == TOKEN_OBJECT);
 
@@ -193,6 +191,24 @@ void test_next_token() {
 
         token = next_token(&tokenizer);
         assert(token->type == TOKEN_OPTIONAL);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_PATTERN);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_PDV);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_PLUS_INFINITY);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_PRESENT);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_PrintableString);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_PRIVATE);
 
         token = next_token(&tokenizer);
         assert(token->type == TOKEN_UNKNOWN);
