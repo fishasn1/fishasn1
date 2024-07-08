@@ -269,6 +269,15 @@ match_reserved_words(tokenizer_t *tokenizer) {
         } else if (strcmp((const char*)buffer, PRIVATE) == 0) {
                 token->type = TOKEN_PRIVATE;
                 token->value = buffer;
+        } else if (strcmp((const char*)buffer, REAL) == 0) {
+                token->type = TOKEN_REAL;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, RELATIVE_OID) == 0) {
+                token->type = TOKEN_RELATIVE_OID;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, RELATIVE_OID_IRI) == 0) {
+                token->type = TOKEN_RELATIVE_OID_IRI;
+                token->value = buffer;
         } else {
                 token->type = TOKEN_UNKNOWN;
                 token->value = buffer;

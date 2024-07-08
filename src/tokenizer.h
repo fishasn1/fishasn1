@@ -69,6 +69,9 @@
 #define PRESENT "PRESENT"
 #define PrintableString "PrintableString"
 #define PRIVATE "PRIVATE"
+#define REAL "REAL"
+#define RELATIVE_OID "RELATIVE-OID"
+#define RELATIVE_OID_IRI "RELATIVE-OID-IRI"
 
 typedef enum {
         TOKEN_ABSENT,
@@ -137,6 +140,9 @@ typedef enum {
         TOKEN_PRESENT,
         TOKEN_PrintableString,
         TOKEN_PRIVATE,
+        TOKEN_REAL,
+        TOKEN_RELATIVE_OID,
+        TOKEN_RELATIVE_OID_IRI,
         TOKEN_UNKNOWN
 } TOKEN_TYPE_ENUM;
 
