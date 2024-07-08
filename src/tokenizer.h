@@ -40,6 +40,17 @@
 #define GeneralizedTime "GeneralizedTime"
 #define GeneralString "GeneralString"
 #define GraphicString "GraphicString"
+#define IA5String "IA5String"
+#define IDENTIFIER "IDENTIFIER"
+#define IMPLICIT "IMPLICIT"
+#define IMPLIED "IMPLIED"
+#define IMPORTS "IMPORTS"
+#define INCLUDES "INCLUDES"
+#define INSTANCE "INSTANCE"
+#define INSTRUCTIONS "INSTRUCTIONS"
+#define INTEGER "INTEGER"
+#define INTERSECTION "INTERSECTION"
+#define ISO646String "ISO646String"
 
 typedef enum {
         TOKEN_ABSENT,
@@ -79,6 +90,17 @@ typedef enum {
         TOKEN_GeneralizedTime,
         TOKEN_GeneralString,
         TOKEN_GraphicString,
+        TOKEN_IA5String,
+        TOKEN_IDENTIFIER,
+        TOKEN_IMPLICIT,
+        TOKEN_IMPLIED,
+        TOKEN_IMPORTS,
+        TOKEN_INCLUDES,
+        TOKEN_INSTANCE,
+        TOKEN_INSTRUCTIONS,
+        TOKEN_INTEGER,
+        TOKEN_INTERSECTION,
+        TOKEN_ISO646String,
         TOKEN_UNKNOWN
 } TOKEN_TYPE_ENUM;
 

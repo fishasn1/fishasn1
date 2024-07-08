@@ -138,7 +138,6 @@ match_reserved_words(tokenizer_t *tokenizer) {
         } else if (strcmp((const char*)buffer, DURATION) == 0) {
                 token->type = TOKEN_DURATION;
                 token->value = buffer;
-
         } else if (strcmp((const char*)buffer, EMBEDDED) == 0) {
                 token->type = TOKEN_EMBEDDED;
                 token->value = buffer;
@@ -183,6 +182,38 @@ match_reserved_words(tokenizer_t *tokenizer) {
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, GraphicString) == 0) {
                 token->type = TOKEN_GraphicString;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, IA5String) == 0) {
+                token->type = TOKEN_IA5String;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, IDENTIFIER) == 0) {
+                token->type = TOKEN_IDENTIFIER;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, IMPLICIT) == 0) {
+                token->type = TOKEN_IMPLICIT;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, IMPLIED) == 0) {
+                token->type = TOKEN_IMPLIED;
+        } else if (strcmp((const char*)buffer, IMPORTS) == 0) {
+                token->type = TOKEN_IMPORTS;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, INCLUDES) == 0) {
+                token->type = TOKEN_INCLUDES;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, INSTANCE) == 0) {
+                token->type = TOKEN_INSTANCE;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, INSTRUCTIONS) == 0) {
+                token->type = TOKEN_INSTRUCTIONS;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, INTEGER) == 0) {
+                token->type = TOKEN_INTEGER;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, INTERSECTION) == 0) {
+                token->type = TOKEN_INTERSECTION;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, ISO646String) == 0) {
+                token->type = TOKEN_ISO646String;
                 token->value = buffer;
         } else {
                 token->type = TOKEN_UNKNOWN;
