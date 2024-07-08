@@ -78,6 +78,13 @@
 #define SIZE "SIZE"
 #define STRING "STRING"
 #define SYNTAX "SYNTAX"
+#define T61String "T61String"
+#define TAGS "TAGS"
+#define TeletexString "TeletexString"
+#define TIME "TIME"
+#define TIME_OF_DAY "TIME-OF-DAY"
+#define TRUE "TRUE"
+#define TYPE_IDENTIFIER "TYPE-IDENTIFIER"
 
 typedef enum {
         TOKEN_ABSENT,
@@ -155,6 +162,13 @@ typedef enum {
         TOKEN_SIZE,
         TOKEN_STRING,
         TOKEN_SYNTAX,
+        TOKEN_T61String,
+        TOKEN_TAGS,
+        TOKEN_TeletexString,
+        TOKEN_TIME,
+        TOKEN_TIME_OF_DAY,
+        TOKEN_TRUE,
+        TOKEN_TYPE_IDENTIFIER,
         TOKEN_UNKNOWN
 } TOKEN_TYPE_ENUM;
 

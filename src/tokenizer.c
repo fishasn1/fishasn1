@@ -296,6 +296,27 @@ match_reserved_words(tokenizer_t *tokenizer) {
         } else if (strcmp((const char*)buffer, SYNTAX) == 0) {
                 token->type = TOKEN_SYNTAX;
                 token->value = buffer;
+        } else if (strcmp((const char*)buffer, T61String) == 0) {
+                token->type = TOKEN_T61String;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, TAGS) == 0) {
+                token->type = TOKEN_TAGS;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, TeletexString) == 0) {
+                token->type = TOKEN_TeletexString;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, TIME) == 0) {
+                token->type = TOKEN_TIME;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, TIME_OF_DAY) == 0) {
+                token->type = TOKEN_TIME_OF_DAY;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, TRUE) == 0) {
+                token->type = TOKEN_TRUE;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, TYPE_IDENTIFIER) == 0) {
+                token->type = TOKEN_TYPE_IDENTIFIER;
+                token->value = buffer;
         } else {
                 token->type = TOKEN_UNKNOWN;
                 token->value = buffer;
