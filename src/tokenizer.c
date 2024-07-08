@@ -215,6 +215,15 @@ match_reserved_words(tokenizer_t *tokenizer) {
         } else if (strcmp((const char*)buffer, ISO646String) == 0) {
                 token->type = TOKEN_ISO646String;
                 token->value = buffer;
+        } else if (strcmp((const char*)buffer, MAX) == 0) {
+                token->type = TOKEN_MAX;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, MIN) == 0) {
+                token->type = TOKEN_MIN;
+                token->value = buffer;
+        } else if (strcmp((const char*)buffer, MINUS_INFINITY) == 0) {
+                token->type = TOKEN_MINUS_INFINITY;
+                token->value = buffer;
         } else {
                 token->type = TOKEN_UNKNOWN;
                 token->value = buffer;

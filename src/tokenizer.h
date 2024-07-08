@@ -51,6 +51,9 @@
 #define INTEGER "INTEGER"
 #define INTERSECTION "INTERSECTION"
 #define ISO646String "ISO646String"
+#define MAX "MAX"
+#define MIN "MIN"
+#define MINUS_INFINITY "MINUS-INFINITY"
 
 typedef enum {
         TOKEN_ABSENT,
@@ -101,6 +104,9 @@ typedef enum {
         TOKEN_INTEGER,
         TOKEN_INTERSECTION,
         TOKEN_ISO646String,
+        TOKEN_MAX,
+        TOKEN_MIN,
+        TOKEN_MINUS_INFINITY,
         TOKEN_UNKNOWN
 } TOKEN_TYPE_ENUM;
 

@@ -5,7 +5,7 @@
 
 void test_next_token() {
         tokenizer_t tokenizer;
-        tokenizer.stream = "ABSENT ABSTRACT-SYNTAX ALL APPLICATION AUTOMATIC BEGIN BIT BMPString BOOLEAN BY CHARACTER CHOICE CLASS COMPONENT COMPONENTS CONSTRAINED CONTAINING DATE DATE-TIME DEFAULT DEFINITIONS DURATION EMBEDDED ENCODED ENCODING-CONTROL END ENUMERATED EXCEPT EXPLICIT EXPORTS EXTENSIBILITY EXTERNAL FALSE FROM GeneralizedTime GeneralString GraphicString IA5String IDENTIFIER IMPLICIT IMPLIED IMPORTS INCLUDES INSTANCE INSTRUCTIONS INTEGER INTERSECTION ISO646String";
+        tokenizer.stream = "ABSENT ABSTRACT-SYNTAX ALL APPLICATION AUTOMATIC BEGIN BIT BMPString BOOLEAN BY CHARACTER CHOICE CLASS COMPONENT COMPONENTS CONSTRAINED CONTAINING DATE DATE-TIME DEFAULT DEFINITIONS DURATION EMBEDDED ENCODED ENCODING-CONTROL END ENUMERATED EXCEPT EXPLICIT EXPORTS EXTENSIBILITY EXTERNAL FALSE FROM GeneralizedTime GeneralString GraphicString IA5String IDENTIFIER IMPLICIT IMPLIED IMPORTS INCLUDES INSTANCE INSTRUCTIONS INTEGER INTERSECTION ISO646String MAX MIN MINUS-INFINITY";
 
         tokenizer.pos = 0;
 
@@ -155,6 +155,15 @@ void test_next_token() {
 
         token = next_token(&tokenizer);
         assert(token->type == TOKEN_ISO646String);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_MAX);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_MIN);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_MINUS_INFINITY);
 
         token = next_token(&tokenizer);
         assert(token->type == TOKEN_UNKNOWN);
