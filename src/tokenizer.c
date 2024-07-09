@@ -411,6 +411,7 @@ match_type_reference(tokenizer_t *tokenizer) {
                                 /*
                                  * TODO: Handle comment at the endif                                        *       of type reference.
                                  */
+                                printf("[TODO] Error: Not handle comment at the end of type reference\n");
                         }
 
                         if (current == '-' &&
