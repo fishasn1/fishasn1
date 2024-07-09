@@ -7,6 +7,14 @@
 
 
 bool 
+is_upper_case(char ch) {
+        if (ch >= 'A' && ch <= 'Z') {
+                return true;
+        }
+        return false;
+}
+
+bool 
 is_eof(char ch) {
         if (ch == '\0') {
                 return true;

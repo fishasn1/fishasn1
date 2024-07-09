@@ -200,6 +200,7 @@ typedef struct {
     unsigned int pos;
 } tokenizer_t;
 
+bool is_upper_case(char ch);
 bool is_eof(char ch);
 bool is_white_space(char ch);
 char next_char(tokenizer_t *tokenizer);
