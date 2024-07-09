@@ -3,7 +3,8 @@ fishasn1 (fish•asn1) is an open source ASN.1 compiler written in C with minima
 
 ## How to test
 #### Requirements
-This project uses `meson` to build and test, so please install the latest version of `meson` on your system before you can run test.
+1. This project uses `meson` to build and test, so please install the latest version of `meson` on your system before you can run test.
+2. C compiler that supports C99 standards (GCC, Clang etc)
 
 #### Run Test
 0. Configure meson the first time, run this command (NOTE: Only run this command once)
