@@ -113,7 +113,7 @@ test_reserved_words_token() {
         tokenizer_t tokenizer;
         tokenizer.stream = "ABSENT ABSTRACT-SYNTAX ALL APPLICATION \
                             AUTOMATIC BEGIN BIT BMPString BOOLEAN BY \
-                            CHARACTER CHOICE CLASS COMPONENT COMPONENTS\ 
+                            CHARACTER CHOICE CLASS COMPONENT COMPONENTS \
                             CONSTRAINED CONTAINING DATE DATE-TIME DEFAULT \
                             DEFINITIONS DURATION EMBEDDED ENCODED \
                             ENCODING-CONTROL END ENUMERATED EXCEPT \
