@@ -407,11 +407,13 @@ match_type_reference(tokenizer_t *tokenizer) {
                 current = next_char(tokenizer);
                 while (is_digit(current) || is_letter(current)
                         || current == '-') {
-                        if (peek_char(tokenizer) == '-') {
-                                /*
-                                 * TODO: Handle comment at the endif                                        *       of type reference.
-                                 */
-                                printf("[TODO] Error: Not handle comment at the end of type reference\n");
+                        if (current == '-' && 
+                                        peek_char(tokenizer) == '-') {
+                                token->type = TOKEN_TYPE_REFERENCE;
+                                buffer[index] = '\0';
+                                tokenizer->pos -= 1;
+                                token->value = buffer;
+                                return token;
                         }
 
                         if (current == '-' &&

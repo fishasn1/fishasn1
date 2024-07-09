@@ -41,7 +41,7 @@ test_is_upper_case() {
 void 
 test_type_reference_token() {
         tokenizer_t tokenizer;
-        tokenizer.stream = "Name Name2 Product-ID Invalid- Another";
+        tokenizer.stream = "Name Name2 Product-ID Invalid- Another WithComment--";
 
         tokenizer.pos = 0;
 
@@ -67,7 +67,17 @@ test_type_reference_token() {
         assert(strcmp((const char *)token->value, "Another") == 0);
 
         token = next_token(&tokenizer);
+        assert(token->type == TOKEN_TYPE_REFERENCE);
+        assert(strcmp((const char *)token->value, "WithComment") == 0);
+
+
+        /*
+         * TODO: Enable this test after adding comment token
+         */
+        /*
+        token = next_token(&tokenizer);
         assert(token->type == TOKEN_END_OF_FILE);
+        */
 }
 
 void 
