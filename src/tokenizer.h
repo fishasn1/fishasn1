@@ -200,6 +200,8 @@ typedef struct {
     unsigned int pos;
 } tokenizer_t;
 
+
+bool is_digit(char ch);
 bool is_letter(char ch);
 bool is_upper_case(char ch);
 bool is_eof(char ch);

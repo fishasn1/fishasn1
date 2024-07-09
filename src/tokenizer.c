@@ -5,6 +5,13 @@
 
 #include "tokenizer.h"
 
+bool 
+is_digit(char ch) {
+        if (ch >= '0' && ch <= '9') {
+                return true;
+        }
+        return false;
+}
 
 bool 
 is_letter(char ch) {

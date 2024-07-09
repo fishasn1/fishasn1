@@ -3,6 +3,14 @@
 #include <stdbool.h>
 #include "tokenizer.h"
 
+void 
+test_is_digit() {
+        assert(is_digit('0') == true);
+        assert(is_digit('5') == true);
+        assert(is_digit('9') == true);
+        assert(is_digit('a') == false);
+}
+
 void
 test_is_letter() {
         char A = 'A';
@@ -401,5 +409,6 @@ main() {
         test_peer_char();
         test_is_upper_case();
         test_is_letter();
+        test_is_digit();
         test_next_token();
 }
