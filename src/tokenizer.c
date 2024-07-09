@@ -77,6 +77,7 @@ match_reserved_words(tokenizer_t *tokenizer) {
         unsigned int start_pos = tokenizer->pos;
         unsigned int index = 0;
         token_t *token = malloc(sizeof(token_t));
+        token->type = TOKEN_UNKNOWN;
 
         /* skip white spaces */
         current = next_char(tokenizer);
@@ -390,6 +391,8 @@ match_type_reference(tokenizer_t *tokenizer) {
          */
         unsigned char *buffer = malloc(1024);
         token_t *token = malloc(sizeof(token_t));
+        token->type = TOKEN_UNKNOWN;
+
         /* skip white spaces */
         current = next_char(tokenizer);
         while(is_white_space(current)) {
