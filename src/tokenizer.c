@@ -5,6 +5,14 @@
 
 #include "tokenizer.h"
 
+tokenizer_t* 
+tokenizer_create(char *stream) {
+        tokenizer_t *tokenizer = malloc(sizeof(tokenizer_t));
+        tokenizer->stream = stream;
+        tokenizer->pos = 0;
+        return tokenizer;
+}
+
 bool 
 is_eol(char ch) {
         if (ch == '\r' || ch == '\n') {

@@ -212,6 +212,6 @@ bool is_white_space(char ch);
 char next_char(tokenizer_t *tokenizer);
 char peek_char(tokenizer_t *tokenizer);
 
-token_t*
-next_token(tokenizer_t *tokenizer);
+tokenizer_t* tokenizer_create(char *stream);
+token_t* next_token(tokenizer_t *tokenizer);
 #endif /* TOKENIZER_H_ */
