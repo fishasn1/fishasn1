@@ -6,6 +6,14 @@
 #include "tokenizer.h"
 
 bool 
+is_eol(char ch) {
+        if (ch == '\r' || ch == '\n') {
+                return true;
+        }
+        return false;
+}
+
+bool 
 is_digit(char ch) {
         if (ch >= '0' && ch <= '9') {
                 return true;
@@ -442,8 +450,58 @@ match_type_reference(tokenizer_t *tokenizer) {
 }
 
 token_t*
+match_one_line_comment(tokenizer_t *tokenizer) {
+        unsigned char current;
+        unsigned int index = 0;
+        unsigned int start_pos = tokenizer->pos;
+        /*
+         * TODO: Dynamically resize buffer if it's so small to hold 
+         *       chars
+         */
+        unsigned char *buffer = malloc(1024);
+        token_t *token = malloc(sizeof(token_t));
+        token->type = TOKEN_UNKNOWN;
+
+        /* skip white spaces */
+        current = next_char(tokenizer);
+        while(is_white_space(current)) {
+                current = next_char(tokenizer);
+        }
+
+        if (is_eof(current)) {
+                token->type = TOKEN_END_OF_FILE;
+                return token;
+        }
+
+        if (current == '-' && peek_char(tokenizer) == '-') {
+                current = next_char(tokenizer);
+                current = next_char(tokenizer);
+                while (!is_eol(current) && current != '-'
+                                && !is_eof(current)) {
+                        buffer[index] = current;
+                        index++;
+                        current = next_char(tokenizer);
+                }
+
+                if (current == '-') {
+                        tokenizer->pos -= 1;
+                }
+                token->type = TOKEN_ONE_LINE_COMMENT;
+                buffer[index] = '\0';
+                token->value = buffer;
+        } else {
+                tokenizer->pos = start_pos;
+        }
+        return token;
+}
+
+token_t*
 next_token(tokenizer_t *tokenizer) {
-        token_t *token = match_reserved_words(tokenizer);
+        token_t *token;
+        token = match_one_line_comment(tokenizer);
+        if (token->type == TOKEN_UNKNOWN) {
+                token = match_reserved_words(tokenizer);
+        }
         
         if (token->type == TOKEN_UNKNOWN) {
                 token = match_type_reference(tokenizer);

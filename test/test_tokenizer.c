@@ -38,10 +38,35 @@ test_is_upper_case() {
         assert(is_upper_case(ch6) == false);
 }
 
+void test_one_line_comment_token() {
+        tokenizer_t tokenizer;
+        tokenizer.stream = "Name --\r----A comment";
+
+        tokenizer.pos = 0;
+
+        token_t *token;
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_TYPE_REFERENCE);
+        assert(strcmp((const char *)token->value, "Name") == 0);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_ONE_LINE_COMMENT);
+        assert(strcmp((const char *)token->value, "") == 0);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_ONE_LINE_COMMENT);
+        assert(strcmp((const char *)token->value, "") == 0);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_ONE_LINE_COMMENT);
+        assert(strcmp((const char *)token->value, "A comment") == 0);
+}
+
 void 
 test_type_reference_token() {
         tokenizer_t tokenizer;
-        tokenizer.stream = "Name Name2 Product-ID Invalid- Another WithComment--";
+        tokenizer.stream = "Name Name2 Product-ID Invalid- Another WithComment--A comment--";
 
         tokenizer.pos = 0;
 
@@ -70,14 +95,16 @@ test_type_reference_token() {
         assert(token->type == TOKEN_TYPE_REFERENCE);
         assert(strcmp((const char *)token->value, "WithComment") == 0);
 
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_ONE_LINE_COMMENT);
+        assert(strcmp((const char *)token->value, "A comment") == 0);
 
-        /*
-         * TODO: Enable this test after adding comment token
-         */
-        /*
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_ONE_LINE_COMMENT);
+        assert(strcmp((const char *)token->value, "") == 0);
+
         token = next_token(&tokenizer);
         assert(token->type == TOKEN_END_OF_FILE);
-        */
 }
 
 void 
@@ -458,4 +485,5 @@ main() {
         test_is_digit();
         test_reserved_words_token();
         test_type_reference_token();
+        test_one_line_comment_token();
 }

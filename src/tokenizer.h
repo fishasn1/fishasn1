@@ -188,6 +188,7 @@ typedef enum {
         TOKEN_VisibleString,
         TOKEN_WITH,
         TOKEN_TYPE_REFERENCE,
+        TOKEN_ONE_LINE_COMMENT,
         TOKEN_END_OF_FILE,
         TOKEN_UNKNOWN
 } TOKEN_TYPE_ENUM;
@@ -202,7 +203,7 @@ typedef struct {
     unsigned int pos;
 } tokenizer_t;
 
-
+bool is_eol(char ch);
 bool is_digit(char ch);
 bool is_letter(char ch);
 bool is_upper_case(char ch);
