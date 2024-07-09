@@ -7,6 +7,15 @@
 
 
 bool 
+is_letter(char ch) {
+        if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
+                return true;
+        }
+
+        return false;
+}
+
+bool 
 is_upper_case(char ch) {
         if (ch >= 'A' && ch <= 'Z') {
                 return true;

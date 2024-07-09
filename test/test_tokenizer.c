@@ -3,7 +3,23 @@
 #include <stdbool.h>
 #include "tokenizer.h"
 
-void test_is_upper_case() {
+void
+test_is_letter() {
+        char A = 'A';
+        char Z = 'Z';
+        char a = 'a';
+        char z = 'z';
+        char ch6 = '6';
+
+        assert(is_letter(A) == true);
+        assert(is_letter(Z) == true);
+        assert(is_letter(a) == true);
+        assert(is_letter(z) == true);
+        assert(is_letter(ch6) == false);
+}
+
+void 
+test_is_upper_case() {
         char a = 'A';
         char z = 'Z';
         char ch6 = '6';
@@ -13,7 +29,8 @@ void test_is_upper_case() {
         assert(is_upper_case(ch6) == false);
 }
 
-void test_next_token() {
+void 
+test_next_token() {
         tokenizer_t tokenizer;
         tokenizer.stream = "ABSENT ABSTRACT-SYNTAX ALL APPLICATION AUTOMATIC BEGIN BIT BMPString BOOLEAN BY CHARACTER CHOICE CLASS COMPONENT COMPONENTS CONSTRAINED CONTAINING DATE DATE-TIME DEFAULT DEFINITIONS DURATION EMBEDDED ENCODED ENCODING-CONTROL END ENUMERATED EXCEPT EXPLICIT EXPORTS EXTENSIBILITY EXTERNAL FALSE FROM GeneralizedTime GeneralString GraphicString IA5String IDENTIFIER IMPLICIT IMPLIED IMPORTS INCLUDES INSTANCE INSTRUCTIONS INTEGER INTERSECTION ISO646String MAX MIN MINUS-INFINITY NOT-A-NUMBER NULL NumericString OBJECT ObjectDescriptor OCTET OF OID-IRI OPTIONAL PATTERN PDV PLUS-INFINITY PRESENT PrintableString PRIVATE REAL RELATIVE-OID RELATIVE-OID-IRI SEQUENCE SET SETTINGS SIZE STRING SYNTAX T61String TAGS TeletexString TIME TIME-OF-DAY TRUE TYPE-IDENTIFIER UNION UNIQUE UNIVERSAL UniversalString UTCTime UTF8String VideotexString VisibleString WITH";
 
@@ -383,5 +400,6 @@ main() {
         test_next_char();
         test_peer_char();
         test_is_upper_case();
+        test_is_letter();
         test_next_token();
 }
