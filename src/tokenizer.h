@@ -187,6 +187,7 @@ typedef enum {
         TOKEN_VideotexString,
         TOKEN_VisibleString,
         TOKEN_WITH,
+        TOKEN_END_OF_FILE,
         TOKEN_UNKNOWN
 } TOKEN_TYPE_ENUM;
 

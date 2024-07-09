@@ -321,7 +321,10 @@ test_next_token() {
         assert(token->type == TOKEN_WITH);
 
         token = next_token(&tokenizer);
-        assert(token->type == TOKEN_UNKNOWN);
+        assert(token->type == TOKEN_END_OF_FILE);
+
+        token = next_token(&tokenizer);
+        assert(token->type == TOKEN_END_OF_FILE);
 }
 
 void 

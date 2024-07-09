@@ -84,6 +84,10 @@ match_reserved_words(tokenizer_t *tokenizer) {
                 current = next_char(tokenizer);
         }
 
+        if (is_eof(current)) {
+                token->type = TOKEN_END_OF_FILE;
+                return token;
+        }
         /* 
          * Check reserved words first 
          */
