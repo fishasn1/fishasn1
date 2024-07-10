@@ -23,3 +23,6 @@ Making an ASN.1 compiler takes a lot of time and effort, and this project is in 
 
 ## License
 fishasn1 source code are made available under the terms of the GNU Affero General Public License ([GNU AGPL v3.0](https://www.gnu.org/licenses/agpl-3.0.html)).
+
+## Contact
+Author: Tommy Jeff (threcius@yahoo.com)
