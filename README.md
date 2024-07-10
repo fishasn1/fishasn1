@@ -19,7 +19,7 @@ meson test
 ```
 
 ## Donate
-Making an ASN.1 compiler takes a lot of time and affort, and this project is in its initial stage, If you would like to see a new ASN.1 compiler develop, please consider [donate](https://www.patreon.com/tommyjeff) to support the development.
+Making an ASN.1 compiler takes a lot of time and effort, and this project is in its initial stage, If you would like to see a new ASN.1 compiler develop, please consider [donate](https://www.patreon.com/tommyjeff) to support the development.
 
 ## License
 fishasn1 source code are made available under the terms of the GNU Affero General Public License ([GNU AGPL v3.0](https://www.gnu.org/licenses/agpl-3.0.html)).
