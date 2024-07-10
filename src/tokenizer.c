@@ -511,8 +511,9 @@ match_type_reference(tokenizer_t *tokenizer) {
                         if (current == '-' &&
                             (is_white_space(peek_char(tokenizer)) ||
                             is_eof(peek_char(tokenizer)))) {
-                                token->type = TOKEN_UNKNOWN;
-                                buffer[index] = '\0';
+                                token->type = TOKEN_ERROR;
+                                buffer[index] = current;
+                                buffer[index + 1] = '\0';
                                 token->value = buffer;
                                 return token;
 

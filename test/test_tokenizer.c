@@ -128,7 +128,7 @@ test_type_reference_token() {
         assert(strcmp((const char *)token->value, "Product-ID") == 0);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_UNKNOWN);
+        assert(token->type == TOKEN_ERROR);
 
         token = next_token(tokenizer);
         assert(token->type == TOKEN_TYPE_REFERENCE);
