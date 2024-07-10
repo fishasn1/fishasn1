@@ -448,12 +448,9 @@ match_identifier(tokenizer_t *tokenizer) {
                             (is_white_space(peek_char(tokenizer)) ||
                             is_eof(peek_char(tokenizer)))) {
                                 token->type = TOKEN_ERROR;
-                                printf("index: %d\n", index);
                                 buffer[index] = current;
                                 buffer[index+1] = '\0';
-                                printf("%s\n", buffer);
                                 token->value = buffer;
-                                printf("%s\n", token->value);
                                 return token;
 
                         }
