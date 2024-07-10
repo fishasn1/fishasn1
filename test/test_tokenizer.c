@@ -62,6 +62,51 @@ void test_one_line_comment_token() {
 }
 
 void 
+test_identifer_token() {
+        char *stream = "name name2 product-ID invalid- another \
+                withComment--A comment--";
+
+        tokenizer_t *tokenizer = tokenizer_create(stream);
+
+        token_t *token;
+
+        token = next_token(tokenizer);
+        assert(token->type == TOKEN_IDENTIFIER);
+        assert(strcmp((const char *)token->value, "name") == 0);
+
+        token = next_token(tokenizer);
+        assert(token->type == TOKEN_IDENTIFIER);
+        assert(strcmp((const char *)token->value, "name2") == 0);
+
+        token = next_token(tokenizer);
+        assert(token->type == TOKEN_IDENTIFIER);
+        assert(strcmp((const char *)token->value, "product-ID") == 0);
+
+        token = next_token(tokenizer);
+        assert(token->type == TOKEN_ERROR);
+
+        token = next_token(tokenizer);
+        assert(token->type == TOKEN_IDENTIFIER);
+        assert(strcmp((const char *)token->value, "another") == 0);
+
+        token = next_token(tokenizer);
+        assert(token->type == TOKEN_IDENTIFIER);
+        assert(strcmp((const char *)token->value, "withComment") == 0);
+
+        token = next_token(tokenizer);
+        assert(token->type == TOKEN_ONE_LINE_COMMENT);
+        assert(strcmp((const char *)token->value, "A comment") == 0);
+
+        token = next_token(tokenizer);
+        assert(token->type == TOKEN_ONE_LINE_COMMENT);
+        assert(strcmp((const char *)token->value, "") == 0);
+
+        token = next_token(tokenizer);
+        assert(token->type == TOKEN_END_OF_FILE);
+}
+
+
+void 
 test_type_reference_token() {
         char *stream = "Name Name2 Product-ID Invalid- Another \
                 WithComment--A comment--";
@@ -498,5 +543,6 @@ main() {
         test_is_digit();
         test_reserved_words_token();
         test_type_reference_token();
+        test_identifer_token();
         test_one_line_comment_token();
 }

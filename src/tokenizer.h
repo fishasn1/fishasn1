@@ -188,9 +188,11 @@ typedef enum {
         TOKEN_KEYWORD_VisibleString,
         TOKEN_KEYWORD_WITH,
         TOKEN_TYPE_REFERENCE,
+        TOKEN_IDENTIFIER,
         TOKEN_ONE_LINE_COMMENT,
         TOKEN_END_OF_FILE,
-        TOKEN_UNKNOWN
+        TOKEN_UNKNOWN,
+        TOKEN_ERROR
 } TOKEN_TYPE_ENUM;
 
 typedef struct {
@@ -207,6 +209,7 @@ bool is_eol(char ch);
 bool is_digit(char ch);
 bool is_letter(char ch);
 bool is_upper_case(char ch);
+bool is_lower_case(char ch);
 bool is_eof(char ch);
 bool is_white_space(char ch);
 char next_char(tokenizer_t *tokenizer);
