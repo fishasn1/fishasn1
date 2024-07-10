@@ -118,276 +118,276 @@ match_reserved_words(tokenizer_t *tokenizer) {
         buffer[index] = '\0';
         
         if (strcmp((const char*)buffer, ABSENT) == 0) {
-                token->type = TOKEN_ABSENT;
+                token->type = TOKEN_KEYWORD_ABSENT;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, ABSTRACT_SYNTAX) == 0) {
-                token->type = TOKEN_ABSTRACT_SYNTAX;
+                token->type = TOKEN_KEYWORD_ABSTRACT_SYNTAX;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, ALL) == 0) {
-                token->type = TOKEN_ALL;
+                token->type = TOKEN_KEYWORD_ALL;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, APPLICATION) == 0) {
-                token->type = TOKEN_APPLICATION;
+                token->type = TOKEN_KEYWORD_APPLICATION;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, AUTOMATIC) == 0) {
-                token->type = TOKEN_AUTOMATIC;
+                token->type = TOKEN_KEYWORD_AUTOMATIC;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, BEGIN) == 0) {
-                token->type = TOKEN_BEGIN;
+                token->type = TOKEN_KEYWORD_BEGIN;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, BIT) == 0) {
-                token->type = TOKEN_BIT;
+                token->type = TOKEN_KEYWORD_BIT;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, BMPString) == 0) {
-                token->type = TOKEN_BMPString;
+                token->type = TOKEN_KEYWORD_BMPString;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, BOOLEAN) == 0) {
-                token->type = TOKEN_BOOLEAN;
+                token->type = TOKEN_KEYWORD_BOOLEAN;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, BY) == 0) {
-                token->type = TOKEN_BY;
+                token->type = TOKEN_KEYWORD_BY;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, CHARACTER) == 0) {
-                token->type = TOKEN_CHARACTER;
+                token->type = TOKEN_KEYWORD_CHARACTER;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, CHOICE) == 0) {
-                token->type = TOKEN_CHOICE;
+                token->type = TOKEN_KEYWORD_CHOICE;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, CLASS) == 0) {
-                token->type = TOKEN_CLASS;
+                token->type = TOKEN_KEYWORD_CLASS;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, COMPONENT) == 0) {
-                token->type = TOKEN_COMPONENT;
+                token->type = TOKEN_KEYWORD_COMPONENT;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, COMPONENTS) == 0) {
-                token->type = TOKEN_COMPONENTS;
+                token->type = TOKEN_KEYWORD_COMPONENTS;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, CONSTRAINED) == 0) {
-                token->type = TOKEN_CONSTRAINED;
+                token->type = TOKEN_KEYWORD_CONSTRAINED;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, CONTAINING) == 0) {
-                token->type = TOKEN_CONTAINING;
+                token->type = TOKEN_KEYWORD_CONTAINING;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, DATE) == 0) {
-                token->type = TOKEN_DATE;
+                token->type = TOKEN_KEYWORD_DATE;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, DATE_TIME) == 0) {
-                token->type = TOKEN_DATE_TIME;
+                token->type = TOKEN_KEYWORD_DATE_TIME;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, DEFAULT) == 0) {
-                token->type = TOKEN_DEFAULT;
+                token->type = TOKEN_KEYWORD_DEFAULT;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, DEFINITIONS) == 0) {
-                token->type = TOKEN_DEFINITIONS;
+                token->type = TOKEN_KEYWORD_DEFINITIONS;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, DURATION) == 0) {
-                token->type = TOKEN_DURATION;
+                token->type = TOKEN_KEYWORD_DURATION;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, EMBEDDED) == 0) {
-                token->type = TOKEN_EMBEDDED;
+                token->type = TOKEN_KEYWORD_EMBEDDED;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, ENCODED) == 0) {
-                token->type = TOKEN_ENCODED;
+                token->type = TOKEN_KEYWORD_ENCODED;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, ENCODING_CONTROL) == 0) {
-                token->type = TOKEN_ENCODING_CONTROL;
+                token->type = TOKEN_KEYWORD_ENCODING_CONTROL;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, END) == 0) {
-                token->type = TOKEN_END;
+                token->type = TOKEN_KEYWORD_END;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, ENUMERATED) == 0) {
-                token->type = TOKEN_ENUMERATED;
+                token->type = TOKEN_KEYWORD_ENUMERATED;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, EXCEPT) == 0) {
-                token->type = TOKEN_EXCEPT;
+                token->type = TOKEN_KEYWORD_EXCEPT;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, EXPLICIT) == 0) {
-                token->type = TOKEN_EXPLICIT;
+                token->type = TOKEN_KEYWORD_EXPLICIT;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, EXPORTS) == 0) {
-                token->type = TOKEN_EXPORTS;
+                token->type = TOKEN_KEYWORD_EXPORTS;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, EXTENSIBILITY) == 0) {
-                token->type = TOKEN_EXTENSIBILITY;
+                token->type = TOKEN_KEYWORD_EXTENSIBILITY;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, EXTERNAL) == 0) {
-                token->type = TOKEN_EXTERNAL;
+                token->type = TOKEN_KEYWORD_EXTERNAL;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, FALSE) == 0) {
-                token->type = TOKEN_FALSE;
+                token->type = TOKEN_KEYWORD_FALSE;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, FROM) == 0) {
-                token->type = TOKEN_FROM;
+                token->type = TOKEN_KEYWORD_FROM;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, GeneralizedTime) == 0) {
-                token->type = TOKEN_GeneralizedTime;
+                token->type = TOKEN_KEYWORD_GeneralizedTime;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, GeneralString) == 0) {
-                token->type = TOKEN_GeneralString;
+                token->type = TOKEN_KEYWORD_GeneralString;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, GraphicString) == 0) {
-                token->type = TOKEN_GraphicString;
+                token->type = TOKEN_KEYWORD_GraphicString;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, IA5String) == 0) {
-                token->type = TOKEN_IA5String;
+                token->type = TOKEN_KEYWORD_IA5String;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, IDENTIFIER) == 0) {
-                token->type = TOKEN_IDENTIFIER;
+                token->type = TOKEN_KEYWORD_IDENTIFIER;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, IMPLICIT) == 0) {
-                token->type = TOKEN_IMPLICIT;
+                token->type = TOKEN_KEYWORD_IMPLICIT;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, IMPLIED) == 0) {
-                token->type = TOKEN_IMPLIED;
+                token->type = TOKEN_KEYWORD_IMPLIED;
         } else if (strcmp((const char*)buffer, IMPORTS) == 0) {
-                token->type = TOKEN_IMPORTS;
+                token->type = TOKEN_KEYWORD_IMPORTS;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, INCLUDES) == 0) {
-                token->type = TOKEN_INCLUDES;
+                token->type = TOKEN_KEYWORD_INCLUDES;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, INSTANCE) == 0) {
-                token->type = TOKEN_INSTANCE;
+                token->type = TOKEN_KEYWORD_INSTANCE;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, INSTRUCTIONS) == 0) {
-                token->type = TOKEN_INSTRUCTIONS;
+                token->type = TOKEN_KEYWORD_INSTRUCTIONS;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, INTEGER) == 0) {
-                token->type = TOKEN_INTEGER;
+                token->type = TOKEN_KEYWORD_INTEGER;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, INTERSECTION) == 0) {
-                token->type = TOKEN_INTERSECTION;
+                token->type = TOKEN_KEYWORD_INTERSECTION;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, ISO646String) == 0) {
-                token->type = TOKEN_ISO646String;
+                token->type = TOKEN_KEYWORD_ISO646String;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, MAX) == 0) {
-                token->type = TOKEN_MAX;
+                token->type = TOKEN_KEYWORD_MAX;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, MIN) == 0) {
-                token->type = TOKEN_MIN;
+                token->type = TOKEN_KEYWORD_MIN;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, MINUS_INFINITY) == 0) {
-                token->type = TOKEN_MINUS_INFINITY;
+                token->type = TOKEN_KEYWORD_MINUS_INFINITY;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, NOT_A_NUMBER) == 0) {
-                token->type = TOKEN_NOT_A_NUMBER;
+                token->type = TOKEN_KEYWORD_NOT_A_NUMBER;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, _NULL) == 0) {
-                token->type = TOKEN_NULL;
+                token->type = TOKEN_KEYWORD_NULL;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, NumericString) == 0) {
-                token->type = TOKEN_NumericString;
+                token->type = TOKEN_KEYWORD_NumericString;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, OBJECT) == 0) {
-                token->type = TOKEN_OBJECT;
+                token->type = TOKEN_KEYWORD_OBJECT;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, ObjectDescriptor) == 0) {
-                token->type = TOKEN_ObjectDescriptor;
+                token->type = TOKEN_KEYWORD_ObjectDescriptor;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, OCTET) == 0) {
-                token->type = TOKEN_OCTET;
+                token->type = TOKEN_KEYWORD_OCTET;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, OF) == 0) {
-                token->type = TOKEN_OF;
+                token->type = TOKEN_KEYWORD_OF;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, OID_IRI) == 0) {
-                token->type = TOKEN_OID_IRI;
+                token->type = TOKEN_KEYWORD_OID_IRI;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, OPTIONAL) == 0) {
-                token->type = TOKEN_OPTIONAL;
+                token->type = TOKEN_KEYWORD_OPTIONAL;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, PATTERN) == 0) {
-                token->type = TOKEN_PATTERN;
+                token->type = TOKEN_KEYWORD_PATTERN;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, PDV) == 0) {
-                token->type = TOKEN_PDV;
+                token->type = TOKEN_KEYWORD_PDV;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, PLUS_INFINITY) == 0) {
-                token->type = TOKEN_PLUS_INFINITY;
+                token->type = TOKEN_KEYWORD_PLUS_INFINITY;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, PRESENT) == 0) {
-                token->type = TOKEN_PRESENT;
+                token->type = TOKEN_KEYWORD_PRESENT;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, PrintableString) == 0) {
-                token->type = TOKEN_PrintableString;
+                token->type = TOKEN_KEYWORD_PrintableString;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, PRIVATE) == 0) {
-                token->type = TOKEN_PRIVATE;
+                token->type = TOKEN_KEYWORD_PRIVATE;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, REAL) == 0) {
-                token->type = TOKEN_REAL;
+                token->type = TOKEN_KEYWORD_REAL;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, RELATIVE_OID) == 0) {
-                token->type = TOKEN_RELATIVE_OID;
+                token->type = TOKEN_KEYWORD_RELATIVE_OID;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, RELATIVE_OID_IRI) == 0) {
-                token->type = TOKEN_RELATIVE_OID_IRI;
+                token->type = TOKEN_KEYWORD_RELATIVE_OID_IRI;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, SEQUENCE) == 0) {
-                token->type = TOKEN_SEQUENCE;
+                token->type = TOKEN_KEYWORD_SEQUENCE;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, SET) == 0) {
-                token->type = TOKEN_SET;
+                token->type = TOKEN_KEYWORD_SET;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, SETTINGS) == 0) {
-                token->type = TOKEN_SETTINGS;
+                token->type = TOKEN_KEYWORD_SETTINGS;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, SIZE) == 0) {
-                token->type = TOKEN_SIZE;
+                token->type = TOKEN_KEYWORD_SIZE;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, STRING) == 0) {
-                token->type = TOKEN_STRING;
+                token->type = TOKEN_KEYWORD_STRING;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, SYNTAX) == 0) {
-                token->type = TOKEN_SYNTAX;
+                token->type = TOKEN_KEYWORD_SYNTAX;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, T61String) == 0) {
-                token->type = TOKEN_T61String;
+                token->type = TOKEN_KEYWORD_T61String;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, TAGS) == 0) {
-                token->type = TOKEN_TAGS;
+                token->type = TOKEN_KEYWORD_TAGS;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, TeletexString) == 0) {
-                token->type = TOKEN_TeletexString;
+                token->type = TOKEN_KEYWORD_TeletexString;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, TIME) == 0) {
-                token->type = TOKEN_TIME;
+                token->type = TOKEN_KEYWORD_TIME;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, TIME_OF_DAY) == 0) {
-                token->type = TOKEN_TIME_OF_DAY;
+                token->type = TOKEN_KEYWORD_TIME_OF_DAY;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, TRUE) == 0) {
-                token->type = TOKEN_TRUE;
+                token->type = TOKEN_KEYWORD_TRUE;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, TYPE_IDENTIFIER) == 0) {
-                token->type = TOKEN_TYPE_IDENTIFIER;
+                token->type = TOKEN_KEYWORD_TYPE_IDENTIFIER;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, UNION) == 0) {
-                token->type = TOKEN_UNION;
+                token->type = TOKEN_KEYWORD_UNION;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, UNIQUE) == 0) {
-                token->type = TOKEN_UNIQUE;
+                token->type = TOKEN_KEYWORD_UNIQUE;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, UNIVERSAL) == 0) {
-                token->type = TOKEN_UNIVERSAL;
+                token->type = TOKEN_KEYWORD_UNIVERSAL;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, UniversalString) == 0) {
-                token->type = TOKEN_UniversalString;
+                token->type = TOKEN_KEYWORD_UniversalString;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, UTCTime) == 0) {
-                token->type = TOKEN_UTCTime;
+                token->type = TOKEN_KEYWORD_UTCTime;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, UTF8String) == 0) {
-                token->type = TOKEN_UTF8String;
+                token->type = TOKEN_KEYWORD_UTF8String;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, VideotexString) == 0) {
-                token->type = TOKEN_VideotexString;
+                token->type = TOKEN_KEYWORD_VideotexString;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, VisibleString) == 0) {
-                token->type = TOKEN_VisibleString;
+                token->type = TOKEN_KEYWORD_VisibleString;
                 token->value = buffer;
         } else if (strcmp((const char*)buffer, WITH) == 0) {
-                token->type = TOKEN_WITH;
+                token->type = TOKEN_KEYWORD_WITH;
                 token->value = buffer;
         } else {
                 token->type = TOKEN_UNKNOWN;

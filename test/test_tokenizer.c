@@ -135,277 +135,277 @@ test_reserved_words_token() {
 
         /* Test reversed words */
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_ABSENT);
+        assert(token->type == TOKEN_KEYWORD_ABSENT);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_ABSTRACT_SYNTAX);
+        assert(token->type == TOKEN_KEYWORD_ABSTRACT_SYNTAX);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_ALL);
+        assert(token->type == TOKEN_KEYWORD_ALL);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_APPLICATION);
+        assert(token->type == TOKEN_KEYWORD_APPLICATION);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_AUTOMATIC);
+        assert(token->type == TOKEN_KEYWORD_AUTOMATIC);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_BEGIN);
+        assert(token->type == TOKEN_KEYWORD_BEGIN);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_BIT);
+        assert(token->type == TOKEN_KEYWORD_BIT);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_BMPString);
+        assert(token->type == TOKEN_KEYWORD_BMPString);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_BOOLEAN);
+        assert(token->type == TOKEN_KEYWORD_BOOLEAN);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_BY);
+        assert(token->type == TOKEN_KEYWORD_BY);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_CHARACTER);
+        assert(token->type == TOKEN_KEYWORD_CHARACTER);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_CHOICE);
+        assert(token->type == TOKEN_KEYWORD_CHOICE);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_CLASS);
+        assert(token->type == TOKEN_KEYWORD_CLASS);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_COMPONENT);
+        assert(token->type == TOKEN_KEYWORD_COMPONENT);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_COMPONENTS);
+        assert(token->type == TOKEN_KEYWORD_COMPONENTS);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_CONSTRAINED);
+        assert(token->type == TOKEN_KEYWORD_CONSTRAINED);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_CONTAINING);
+        assert(token->type == TOKEN_KEYWORD_CONTAINING);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_DATE);
+        assert(token->type == TOKEN_KEYWORD_DATE);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_DATE_TIME);
+        assert(token->type == TOKEN_KEYWORD_DATE_TIME);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_DEFAULT);
+        assert(token->type == TOKEN_KEYWORD_DEFAULT);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_DEFINITIONS);
+        assert(token->type == TOKEN_KEYWORD_DEFINITIONS);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_DURATION);
+        assert(token->type == TOKEN_KEYWORD_DURATION);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_EMBEDDED);
+        assert(token->type == TOKEN_KEYWORD_EMBEDDED);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_ENCODED);
+        assert(token->type == TOKEN_KEYWORD_ENCODED);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_ENCODING_CONTROL);
+        assert(token->type == TOKEN_KEYWORD_ENCODING_CONTROL);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_END);
+        assert(token->type == TOKEN_KEYWORD_END);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_ENUMERATED);
+        assert(token->type == TOKEN_KEYWORD_ENUMERATED);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_EXCEPT);
+        assert(token->type == TOKEN_KEYWORD_EXCEPT);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_EXPLICIT);
+        assert(token->type == TOKEN_KEYWORD_EXPLICIT);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_EXPORTS);
+        assert(token->type == TOKEN_KEYWORD_EXPORTS);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_EXTENSIBILITY);
+        assert(token->type == TOKEN_KEYWORD_EXTENSIBILITY);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_EXTERNAL);
+        assert(token->type == TOKEN_KEYWORD_EXTERNAL);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_FALSE);
+        assert(token->type == TOKEN_KEYWORD_FALSE);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_FROM);
+        assert(token->type == TOKEN_KEYWORD_FROM);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_GeneralizedTime);
+        assert(token->type == TOKEN_KEYWORD_GeneralizedTime);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_GeneralString);
+        assert(token->type == TOKEN_KEYWORD_GeneralString);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_GraphicString);
+        assert(token->type == TOKEN_KEYWORD_GraphicString);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_IA5String);
+        assert(token->type == TOKEN_KEYWORD_IA5String);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_IDENTIFIER);
+        assert(token->type == TOKEN_KEYWORD_IDENTIFIER);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_IMPLICIT);
+        assert(token->type == TOKEN_KEYWORD_IMPLICIT);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_IMPLIED);
+        assert(token->type == TOKEN_KEYWORD_IMPLIED);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_IMPORTS);
+        assert(token->type == TOKEN_KEYWORD_IMPORTS);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_INCLUDES);
+        assert(token->type == TOKEN_KEYWORD_INCLUDES);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_INSTANCE);
+        assert(token->type == TOKEN_KEYWORD_INSTANCE);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_INSTRUCTIONS);
+        assert(token->type == TOKEN_KEYWORD_INSTRUCTIONS);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_INTEGER);
+        assert(token->type == TOKEN_KEYWORD_INTEGER);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_INTERSECTION);
+        assert(token->type == TOKEN_KEYWORD_INTERSECTION);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_ISO646String);
+        assert(token->type == TOKEN_KEYWORD_ISO646String);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_MAX);
+        assert(token->type == TOKEN_KEYWORD_MAX);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_MIN);
+        assert(token->type == TOKEN_KEYWORD_MIN);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_MINUS_INFINITY);
+        assert(token->type == TOKEN_KEYWORD_MINUS_INFINITY);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_NOT_A_NUMBER);
+        assert(token->type == TOKEN_KEYWORD_NOT_A_NUMBER);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_NULL);
+        assert(token->type == TOKEN_KEYWORD_NULL);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_NumericString);
+        assert(token->type == TOKEN_KEYWORD_NumericString);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_OBJECT);
+        assert(token->type == TOKEN_KEYWORD_OBJECT);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_ObjectDescriptor);
+        assert(token->type == TOKEN_KEYWORD_ObjectDescriptor);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_OCTET);
+        assert(token->type == TOKEN_KEYWORD_OCTET);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_OF);
+        assert(token->type == TOKEN_KEYWORD_OF);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_OID_IRI);
+        assert(token->type == TOKEN_KEYWORD_OID_IRI);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_OPTIONAL);
+        assert(token->type == TOKEN_KEYWORD_OPTIONAL);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_PATTERN);
+        assert(token->type == TOKEN_KEYWORD_PATTERN);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_PDV);
+        assert(token->type == TOKEN_KEYWORD_PDV);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_PLUS_INFINITY);
+        assert(token->type == TOKEN_KEYWORD_PLUS_INFINITY);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_PRESENT);
+        assert(token->type == TOKEN_KEYWORD_PRESENT);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_PrintableString);
+        assert(token->type == TOKEN_KEYWORD_PrintableString);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_PRIVATE);
+        assert(token->type == TOKEN_KEYWORD_PRIVATE);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_REAL);
+        assert(token->type == TOKEN_KEYWORD_REAL);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_RELATIVE_OID);
+        assert(token->type == TOKEN_KEYWORD_RELATIVE_OID);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_RELATIVE_OID_IRI);
+        assert(token->type == TOKEN_KEYWORD_RELATIVE_OID_IRI);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_SEQUENCE);
+        assert(token->type == TOKEN_KEYWORD_SEQUENCE);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_SET);
+        assert(token->type == TOKEN_KEYWORD_SET);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_SETTINGS);
+        assert(token->type == TOKEN_KEYWORD_SETTINGS);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_SIZE);
+        assert(token->type == TOKEN_KEYWORD_SIZE);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_STRING);
+        assert(token->type == TOKEN_KEYWORD_STRING);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_SYNTAX);
+        assert(token->type == TOKEN_KEYWORD_SYNTAX);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_T61String);
+        assert(token->type == TOKEN_KEYWORD_T61String);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_TAGS);
+        assert(token->type == TOKEN_KEYWORD_TAGS);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_TeletexString);
+        assert(token->type == TOKEN_KEYWORD_TeletexString);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_TIME);
+        assert(token->type == TOKEN_KEYWORD_TIME);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_TIME_OF_DAY);
+        assert(token->type == TOKEN_KEYWORD_TIME_OF_DAY);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_TRUE);
+        assert(token->type == TOKEN_KEYWORD_TRUE);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_TYPE_IDENTIFIER);
+        assert(token->type == TOKEN_KEYWORD_TYPE_IDENTIFIER);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_UNION);
+        assert(token->type == TOKEN_KEYWORD_UNION);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_UNIQUE);
+        assert(token->type == TOKEN_KEYWORD_UNIQUE);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_UNIVERSAL);
+        assert(token->type == TOKEN_KEYWORD_UNIVERSAL);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_UniversalString);
+        assert(token->type == TOKEN_KEYWORD_UniversalString);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_UTCTime);
+        assert(token->type == TOKEN_KEYWORD_UTCTime);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_UTF8String);
+        assert(token->type == TOKEN_KEYWORD_UTF8String);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_VideotexString);
+        assert(token->type == TOKEN_KEYWORD_VideotexString);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_VisibleString);
+        assert(token->type == TOKEN_KEYWORD_VisibleString);
 
         token = next_token(tokenizer);
-        assert(token->type == TOKEN_WITH);
+        assert(token->type == TOKEN_KEYWORD_WITH);
 
         token = next_token(tokenizer);
         assert(token->type == TOKEN_END_OF_FILE);
