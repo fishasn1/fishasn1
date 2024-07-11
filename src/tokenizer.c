@@ -16,6 +16,14 @@ tokenizer_create(char *stream) {
 }
 
 
+token_t* 
+token_create() {
+        token_t *token = malloc(sizeof(token_t));
+        token->type = TOKEN_UNKNOWN;
+        token->value = NULL;
+        return token;
+}
+
 void 
 token_free(token_t *token) {
         if (token != NULL) {
@@ -120,9 +128,7 @@ match_reserved_words(tokenizer_t *tokenizer) {
         unsigned char *buffer;
         unsigned int start_pos = tokenizer->pos;
         unsigned int index = 0;
-        token_t *token = malloc(sizeof(token_t));
-        token->type = TOKEN_UNKNOWN;
-        token->value = NULL;
+        token_t *token = token_create();
 
         /* skip white spaces */
         current = next_char(tokenizer);
@@ -436,9 +442,7 @@ match_identifier(tokenizer_t *tokenizer) {
          *       chars
          */
         unsigned char *buffer = malloc(1024);
-        token_t *token = malloc(sizeof(token_t));
-        token->type = TOKEN_UNKNOWN;
-        token->value = NULL;
+        token_t *token = token_create();
 
         /* skip white spaces */
         current = next_char(tokenizer);
@@ -501,9 +505,7 @@ match_type_reference(tokenizer_t *tokenizer) {
          *       chars
          */
         unsigned char *buffer = malloc(1024);
-        token_t *token = malloc(sizeof(token_t));
-        token->type = TOKEN_UNKNOWN;
-        token->value = NULL;
+        token_t *token = token_create();
 
         /* skip white spaces */
         current = next_char(tokenizer);
@@ -566,9 +568,7 @@ match_one_line_comment(tokenizer_t *tokenizer) {
          *       chars
          */
         unsigned char *buffer = malloc(1024);
-        token_t *token = malloc(sizeof(token_t));
-        token->type = TOKEN_UNKNOWN;
-        token->value = NULL;
+        token_t *token = token_create();
 
         /* skip white spaces */
         current = next_char(tokenizer);
@@ -615,9 +615,7 @@ match_multi_line_comment(tokenizer_t *tokenizer) {
          *       chars
          */
         unsigned char *buffer = malloc(1024);
-        token_t *token = malloc(sizeof(token_t));
-        token->type = TOKEN_UNKNOWN;
-        token->value = NULL;
+        token_t *token = token_create();
 
         /* skip white spaces */
         current = next_char(tokenizer);

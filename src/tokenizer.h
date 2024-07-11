@@ -222,5 +222,6 @@ char peek_char(tokenizer_t *tokenizer);
 
 tokenizer_t* tokenizer_create(char *stream);
 token_t* next_token(tokenizer_t *tokenizer);
+token_t* token_create();
 void token_free(token_t *token);
 #endif /* TOKENIZER_H_ */
