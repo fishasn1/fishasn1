@@ -470,7 +470,7 @@ test_is_white_space() {
 
 void 
 test_next_char() {
-        tokenizer_t *tokenizer = tokenizer_create("CHOICE INTEGER");
+        tokenizer_t *tokenizer = tokenizer_create("CHOICE \r\r\n\r\n\rINTEGER");
 
         assert(next_char(tokenizer) == 'C');
         assert(next_char(tokenizer) == 'H');
@@ -480,6 +480,26 @@ test_next_char() {
         assert(next_char(tokenizer) == 'E');
 
         assert(next_char(tokenizer) == ' ');
+        assert(tokenizer->line_num == 1);
+        assert(tokenizer->column == 7);
+
+        assert(next_char(tokenizer) == '\r');
+        assert(tokenizer->line_num == 2);
+
+        assert(next_char(tokenizer) == '\r');
+        assert(tokenizer->line_num == 2);
+        assert(next_char(tokenizer) == '\n');
+        assert(tokenizer->line_num == 3);
+        assert(tokenizer->column == 0);
+
+        assert(next_char(tokenizer) == '\r');
+        assert(tokenizer->line_num == 3);
+        assert(next_char(tokenizer) == '\n');
+        assert(tokenizer->line_num == 4);
+        assert(tokenizer->column == 0);
+
+        assert(next_char(tokenizer) == '\r');
+        assert(tokenizer->line_num == 5);
 
         assert(next_char(tokenizer) == 'I');
         assert(next_char(tokenizer) == 'N');

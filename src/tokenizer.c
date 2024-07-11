@@ -10,6 +10,8 @@ tokenizer_create(char *stream) {
         tokenizer_t *tokenizer = malloc(sizeof(tokenizer_t));
         tokenizer->stream = stream;
         tokenizer->pos = 0;
+        tokenizer->line_num = 1;
+        tokenizer->column = 0;
         return tokenizer;
 }
 
@@ -77,6 +79,13 @@ next_char(tokenizer_t *tokenizer) {
         if (tokenizer->pos <= strlen(tokenizer->stream) - 1) {
                 ch = tokenizer->stream[tokenizer->pos];
                 tokenizer->pos++;
+                if ((ch == '\r' && peek_char(tokenizer) != '\n') 
+                                || ch == '\n') {
+                        tokenizer->line_num++;
+                        tokenizer->column = 0;
+                } else {
+                        tokenizer->column++;
+                }
         } else {
                 ch = 0;
         }

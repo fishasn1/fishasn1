@@ -205,6 +205,8 @@ typedef struct {
 typedef struct {
     char *stream;
     unsigned int pos;
+    unsigned int line_num;
+    unsigned int column;
 } tokenizer_t;
 
 bool is_eol(char ch);
