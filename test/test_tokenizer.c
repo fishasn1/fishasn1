@@ -61,6 +61,28 @@ void test_one_line_comment_token() {
         assert(strcmp((const char *)token->value, "A comment") == 0);
 }
 
+void test_multi_line_comment_token() {
+        char *stream = "/* A multi-line comment\r\n*/";
+        char *stream2 = "/* A multi-line comment \r\n/* inner comment */*/";
+        char *stream3 = "/* A multi-line comment \r\n/* inner comment */";
+        tokenizer_t *tokenizer = tokenizer_create(stream);
+        tokenizer_t *tokenizer2 = tokenizer_create(stream2);
+        tokenizer_t *tokenizer3 = tokenizer_create(stream3);
+
+        token_t *token;
+
+        token = next_token(tokenizer);
+        assert(token->type == TOKEN_MULTI_LINE_COMMENT);
+        assert(strcmp((const char *)token->value, " A multi-line comment\r\n") == 0);
+
+        token = next_token(tokenizer2);
+        assert(token->type == TOKEN_MULTI_LINE_COMMENT);
+        assert(strcmp((const char *)token->value, " A multi-line comment \r\n/* inner comment */") == 0);
+
+        token = next_token(tokenizer3);
+        assert(token->type == TOKEN_ERROR);
+}
+
 void 
 test_identifer_token() {
         char *stream = "name name2 product-ID invalid- another \
@@ -565,4 +587,5 @@ main() {
         test_type_reference_token();
         test_identifer_token();
         test_one_line_comment_token();
+        test_multi_line_comment_token();
 }

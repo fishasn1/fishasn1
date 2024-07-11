@@ -589,9 +589,82 @@ match_one_line_comment(tokenizer_t *tokenizer) {
 }
 
 token_t*
+match_multi_line_comment(tokenizer_t *tokenizer) {
+        unsigned char current;
+        unsigned int index = 0;
+        unsigned int start_pos = tokenizer->pos;
+        unsigned int unmatch = 1;
+        /*
+         * TODO: Dynamically resize buffer if it's so small to hold 
+         *       chars
+         */
+        unsigned char *buffer = malloc(1024);
+        token_t *token = malloc(sizeof(token_t));
+        token->type = TOKEN_UNKNOWN;
+
+        /* skip white spaces */
+        current = next_char(tokenizer);
+        while(is_white_space(current)) {
+                current = next_char(tokenizer);
+        }
+
+        if (is_eof(current)) {
+                token->type = TOKEN_END_OF_FILE;
+                return token;
+        }
+
+        if (current == '/' && peek_char(tokenizer) == '*') {
+                current = next_char(tokenizer);
+                current = next_char(tokenizer);
+                bool match_done = false;
+                while (!match_done) {
+                        buffer[index] = current;
+                        index++;
+                        if (is_eof(current)) {
+                                /* TODO: Raise error for not matching
+                                 *       before end of file.
+                                 */
+                                token->type = TOKEN_ERROR;
+                                return token;
+                        }
+
+                        if (current == '/' && peek_char(tokenizer) == '*') {
+                                unmatch++;
+                        }
+
+                        if (current == '*' && peek_char(tokenizer) == '/' 
+                                        && unmatch == 1) {
+                                buffer[index - 1] = '\0';
+                                match_done = true;
+                                break;
+                        }
+
+                        if (current == '*' && peek_char(tokenizer) == '/' && unmatch > 1) {
+                                current = next_char(tokenizer);
+                                buffer[index] = current;
+                                index++;
+                                unmatch--;
+                        }
+
+                        current = next_char(tokenizer);
+                }
+                token->type = TOKEN_MULTI_LINE_COMMENT;
+                buffer[index] = '\0';
+                token->value = buffer;
+        } else {
+                tokenizer->pos = start_pos;
+        }
+        return token;
+}
+
+token_t*
 next_token(tokenizer_t *tokenizer) {
         token_t *token;
         token = match_one_line_comment(tokenizer);
+        if (token->type == TOKEN_UNKNOWN) {
+                token = match_multi_line_comment(tokenizer);
+        }
+
         if (token->type == TOKEN_UNKNOWN) {
                 token = match_identifier(tokenizer);
         }
