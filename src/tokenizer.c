@@ -15,6 +15,17 @@ tokenizer_create(char *stream) {
         return tokenizer;
 }
 
+
+void 
+token_free(token_t *token) {
+        if (token != NULL) {
+                if (token->value != NULL) {
+                        free(token->value);
+                }
+                free(token);
+        }
+}
+
 bool 
 is_eol(char ch) {
         if (ch == '\r' || ch == '\n') {
@@ -111,6 +122,7 @@ match_reserved_words(tokenizer_t *tokenizer) {
         unsigned int index = 0;
         token_t *token = malloc(sizeof(token_t));
         token->type = TOKEN_UNKNOWN;
+        token->value = NULL;
 
         /* skip white spaces */
         current = next_char(tokenizer);
@@ -426,6 +438,7 @@ match_identifier(tokenizer_t *tokenizer) {
         unsigned char *buffer = malloc(1024);
         token_t *token = malloc(sizeof(token_t));
         token->type = TOKEN_UNKNOWN;
+        token->value = NULL;
 
         /* skip white spaces */
         current = next_char(tokenizer);
@@ -490,6 +503,7 @@ match_type_reference(tokenizer_t *tokenizer) {
         unsigned char *buffer = malloc(1024);
         token_t *token = malloc(sizeof(token_t));
         token->type = TOKEN_UNKNOWN;
+        token->value = NULL;
 
         /* skip white spaces */
         current = next_char(tokenizer);
@@ -554,6 +568,7 @@ match_one_line_comment(tokenizer_t *tokenizer) {
         unsigned char *buffer = malloc(1024);
         token_t *token = malloc(sizeof(token_t));
         token->type = TOKEN_UNKNOWN;
+        token->value = NULL;
 
         /* skip white spaces */
         current = next_char(tokenizer);
@@ -563,6 +578,7 @@ match_one_line_comment(tokenizer_t *tokenizer) {
 
         if (is_eof(current)) {
                 token->type = TOKEN_END_OF_FILE;
+                token->value = NULL;
                 return token;
         }
 
@@ -601,6 +617,7 @@ match_multi_line_comment(tokenizer_t *tokenizer) {
         unsigned char *buffer = malloc(1024);
         token_t *token = malloc(sizeof(token_t));
         token->type = TOKEN_UNKNOWN;
+        token->value = NULL;
 
         /* skip white spaces */
         current = next_char(tokenizer);
@@ -610,6 +627,7 @@ match_multi_line_comment(tokenizer_t *tokenizer) {
 
         if (is_eof(current)) {
                 token->type = TOKEN_END_OF_FILE;
+                token->value = NULL;
                 return token;
         }
 
@@ -625,6 +643,7 @@ match_multi_line_comment(tokenizer_t *tokenizer) {
                                  *       before end of file.
                                  */
                                 token->type = TOKEN_ERROR;
+                                token->value = NULL;
                                 return token;
                         }
 
@@ -662,18 +681,23 @@ next_token(tokenizer_t *tokenizer) {
         token_t *token;
         token = match_one_line_comment(tokenizer);
         if (token->type == TOKEN_UNKNOWN) {
+                token_free(token);
                 token = match_multi_line_comment(tokenizer);
         }
+        
 
         if (token->type == TOKEN_UNKNOWN) {
+                token_free(token);
                 token = match_identifier(tokenizer);
         }
 
         if (token->type == TOKEN_UNKNOWN) {
+                token_free(token);
                 token = match_reserved_words(tokenizer);
         }
         
         if (token->type == TOKEN_UNKNOWN) {
+                token_free(token);
                 token = match_type_reference(tokenizer);
         }
         return token;
