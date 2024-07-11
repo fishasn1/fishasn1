@@ -189,6 +189,8 @@ typedef enum {
         TOKEN_KEYWORD_WITH,
         TOKEN_TYPE_REFERENCE,
         TOKEN_IDENTIFIER,
+        TOKEN_VALUE_REFERENCE,  /* equivalent to TOKEN_IDENTIFIER */
+        TOKEN_MODULE_REFERENCE,/* equivalent to TOKEN_TYPE_REFERENCE */
         TOKEN_ONE_LINE_COMMENT,
         TOKEN_END_OF_FILE,
         TOKEN_UNKNOWN,
