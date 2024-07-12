@@ -123,6 +123,53 @@ peek_char(tokenizer_t *tokenizer) {
 }
 
 token_t*
+match_number(tokenizer_t *tokenizer) {
+        unsigned char current;
+        unsigned int index = 0;
+        unsigned int start_pos = tokenizer->pos;
+        /*
+         * TODO: Dynamically resize buffer if it's so small to hold 
+         *       chars
+         */
+        unsigned char *buffer = malloc(1024);
+        token_t *token = token_create();
+
+        /* skip white spaces */
+        current = next_char(tokenizer);
+        while(is_white_space(current)) {
+                current = next_char(tokenizer);
+        }
+
+        if (is_eof(current)) {
+                token->type = TOKEN_END_OF_FILE;
+                return token;
+        }
+
+        if (is_digit(current)) {
+                if (current == '0' && !(is_eof(peek_char(tokenizer)) || is_white_space(peek_char(tokenizer)))) {
+                        token->type = TOKEN_ERROR;
+                        buffer[index] = current;
+                        buffer[index+1] = '\0';
+                        return token;
+                }
+
+                while (is_digit(current)){
+                        buffer[index] = current;
+                        index++;
+                        current = next_char(tokenizer);
+                }
+
+                token->type = TOKEN_NUMBER;
+                buffer[index] = '\0';
+                token->value = buffer;
+        } else {
+                tokenizer->pos = start_pos;
+        }
+
+        return token;
+}
+
+token_t*
 match_reserved_words(tokenizer_t *tokenizer) {
         unsigned char current;
         unsigned char *buffer;
@@ -677,7 +724,13 @@ match_multi_line_comment(tokenizer_t *tokenizer) {
 token_t*
 next_token(tokenizer_t *tokenizer) {
         token_t *token;
-        token = match_one_line_comment(tokenizer);
+        token = match_number(tokenizer);
+
+        if (token->type == TOKEN_UNKNOWN) {
+                token_free(token);
+                token = match_one_line_comment(tokenizer);
+        }
+
         if (token->type == TOKEN_UNKNOWN) {
                 token_free(token);
                 token = match_multi_line_comment(tokenizer);

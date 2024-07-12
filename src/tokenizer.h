@@ -193,6 +193,7 @@ typedef enum {
         TOKEN_MODULE_REFERENCE, /* equivalent to TOKEN_TYPE_REFERENCE */
         TOKEN_ONE_LINE_COMMENT,
         TOKEN_MULTI_LINE_COMMENT,
+        TOKEN_NUMBER,
         TOKEN_END_OF_FILE,
         TOKEN_UNKNOWN,
         TOKEN_ERROR

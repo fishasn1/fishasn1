@@ -38,6 +38,28 @@ test_is_upper_case() {
         assert(is_upper_case(ch6) == false);
 }
 
+void test_number_token() {
+        char *stream = "12345 9999 0 01234";
+        tokenizer_t *tokenizer = tokenizer_create(stream);
+
+        token_t *token;
+
+        token = next_token(tokenizer);
+        assert(token->type == TOKEN_NUMBER);
+        assert(strcmp((const char *)token->value, "12345") == 0);
+
+        token = next_token(tokenizer);
+        assert(token->type == TOKEN_NUMBER);
+        assert(strcmp((const char *)token->value, "9999") == 0);
+
+        token = next_token(tokenizer);
+        assert(token->type == TOKEN_NUMBER);
+        assert(strcmp((const char *)token->value, "0") == 0);
+
+        token = next_token(tokenizer);
+        assert(token->type == TOKEN_ERROR);
+}
+
 void test_one_line_comment_token() {
         char *stream = "Name --\r----A comment";
         tokenizer_t *tokenizer = tokenizer_create(stream);
@@ -588,4 +610,5 @@ main() {
         test_identifer_token();
         test_one_line_comment_token();
         test_multi_line_comment_token();
+        test_number_token();
 }
