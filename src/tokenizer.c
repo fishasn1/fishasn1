@@ -148,8 +148,17 @@ match_number(tokenizer_t *tokenizer) {
         if (is_digit(current)) {
                 if (current == '0' && !(is_eof(peek_char(tokenizer)) || is_white_space(peek_char(tokenizer)))) {
                         token->type = TOKEN_ERROR;
-                        buffer[index] = current;
-                        buffer[index+1] = '\0';
+                        /* Getting all digits after '0' although is not a 
+                         * valid number, so that later lexicial item can 
+                         * be correctly matching
+                         */
+                        while (is_digit(current)){
+                                buffer[index] = current;
+                                index++;
+                                current = next_char(tokenizer);
+                        }
+                        buffer[index] = '\0';
+                        /* TODO: Report the not a valid number error */
                         return token;
                 }
 
