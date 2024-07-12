@@ -158,6 +158,7 @@ match_number(tokenizer_t *tokenizer) {
                                 current = next_char(tokenizer);
                         }
                         buffer[index] = '\0';
+                        token->value = buffer;
                         /* TODO: Report the not a valid number error */
                         return token;
                 }

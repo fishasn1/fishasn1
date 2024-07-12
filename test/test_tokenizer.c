@@ -54,6 +54,7 @@ void test_number_token() {
 
         token = next_token(tokenizer);
         assert(token->type == TOKEN_ERROR);
+        assert(strcmp((const char*)token->value, "01234") == 0);
 
         token = next_token(tokenizer);
         assert(token->type == TOKEN_NUMBER);
