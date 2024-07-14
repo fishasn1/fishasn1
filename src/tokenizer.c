@@ -123,6 +123,122 @@ peek_char(tokenizer_t *tokenizer) {
 }
 
 token_t*
+match_real_number(tokenizer_t *tokenizer) {
+        unsigned char current;
+        unsigned int index = 0;
+        unsigned int start_pos = tokenizer->pos;
+        bool has_decimal_point = false;
+        bool many_decimal_point = false;
+        bool has_exponent = false;
+        bool many_exponents = false;
+        bool invalid_sign_after_exponent = false;
+        bool has_leading_zero = false;
+        bool leading_zero_with_none_zero = false;
+
+        /*
+         * TODO: Dynamically resize buffer if it's so small to hold 
+         *       chars
+         */
+        unsigned char *buffer = malloc(1024);
+        token_t *token = token_create();
+
+        /* skip white spaces */
+        current = next_char(tokenizer);
+        while(is_white_space(current)) {
+                current = next_char(tokenizer);
+        }
+
+        if (is_eof(current)) {
+                token->type = TOKEN_END_OF_FILE;
+                return token;
+        }
+
+        if (is_digit(current)) {
+                if (current == '0') {
+                        has_leading_zero = true;
+                        unsigned char peek = peek_char(tokenizer);
+                        if (is_white_space(peek) || is_eof(peek)) {
+                                buffer[index] = current;
+                                index++;
+                                buffer[index] = '\0';
+                                token->type = TOKEN_REAL_NUMBER;
+                                token->value = buffer;
+                                return token;
+                        }
+                }
+                buffer[index] = current;
+                index++;
+                current = next_char(tokenizer);
+
+                while (true) {
+                        if (is_white_space(current) || is_eof(current)
+                                        || !(is_digit(current)
+                                           || current == '.'
+                                           || current == 'e'
+                                           || current == 'E' 
+                                           || current == '-')) { 
+                                break;
+                        } else {
+                                buffer[index] = current;
+                                index++;
+                        }
+
+                        if (has_leading_zero && is_digit(current) && 
+                                current != '0') {
+                                leading_zero_with_none_zero = true;
+                        }
+
+                        if (current == '.' && !has_decimal_point) {
+                                has_decimal_point = true;
+                        } else if (current == '.' && has_decimal_point) {
+                                many_decimal_point = true;
+                        }
+
+                        if ((current == 'e' || current == 'E') && 
+                                        !has_exponent) {
+                                has_exponent = true;
+                                current = next_char(tokenizer);
+                                buffer[index] = current;
+                                index++;
+                                if (current == '-') {
+                                        unsigned char peek = peek_char(tokenizer);
+                                        if (!is_digit(peek) 
+                                                || is_white_space(peek)
+                                                || is_eof(peek)) {
+                                                invalid_sign_after_exponent = true;
+                                        }
+                                }
+                        } else if (has_exponent &&
+                                        (current == 'e' || current == 'E')) {
+                                many_exponents = true;
+                        }
+
+                        current = next_char(tokenizer);
+                }
+                if (has_leading_zero && !has_decimal_point) {
+                        token->type = TOKEN_ERROR;
+                } else if (has_leading_zero && has_decimal_point
+                                && !leading_zero_with_none_zero) {
+                        token->type = TOKEN_ERROR;
+                } else if (has_decimal_point && many_decimal_point) {
+                        token->type = TOKEN_ERROR;
+                } else if (has_exponent && many_exponents) {
+                        token->type = TOKEN_ERROR;
+                } else if (has_exponent && invalid_sign_after_exponent) {
+                        token->type = TOKEN_ERROR;
+                } else {
+                        token->type = TOKEN_REAL_NUMBER;
+                }
+                buffer[index] = '\0';
+                token->value = buffer;
+        } else {
+                tokenizer->pos = start_pos;
+        }
+
+        return token;
+}
+
+token_t*
 match_number(tokenizer_t *tokenizer) {
         unsigned char current;
         unsigned int index = 0;
@@ -146,13 +262,19 @@ match_number(tokenizer_t *tokenizer) {
         }
 
         if (is_digit(current)) {
-                if (current == '0' && !(is_eof(peek_char(tokenizer)) || is_white_space(peek_char(tokenizer)))) {
+                unsigned char peek = peek_char(tokenizer);
+                if (current == '0' && !(is_eof(peek) 
+                        || is_white_space(peek)) 
+                                && peek != '.'
+                                && peek != 'e'
+                                && peek != 'E') {
                         token->type = TOKEN_ERROR;
                         /* Getting all digits after '0' although is not a 
                          * valid number, so that later lexicial item can 
                          * be correctly matching
                          */
-                        while (is_digit(current)){
+                        while (!(is_white_space(current) ||
+                                                is_eof(current))){
                                 buffer[index] = current;
                                 index++;
                                 current = next_char(tokenizer);
@@ -169,6 +291,15 @@ match_number(tokenizer_t *tokenizer) {
                         current = next_char(tokenizer);
                 }
 
+                /* Trailing . in number, which should be a real number */
+                if (current == '.' || current == 'e' 
+                                || current == 'E') {
+                        token->type = TOKEN_UNKNOWN;
+                        buffer[index] = current;
+                        buffer[index + 1] = '\0';
+                        tokenizer->pos = start_pos;
+                        return token;
+                }
                 token->type = TOKEN_NUMBER;
                 buffer[index] = '\0';
                 token->value = buffer;
@@ -735,6 +866,11 @@ token_t*
 next_token(tokenizer_t *tokenizer) {
         token_t *token;
         token = match_number(tokenizer);
+
+        if (token->type == TOKEN_UNKNOWN) {
+                token_free(token);
+                token = match_real_number(tokenizer);
+        }
 
         if (token->type == TOKEN_UNKNOWN) {
                 token_free(token);

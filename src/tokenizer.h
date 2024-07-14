@@ -194,6 +194,7 @@ typedef enum {
         TOKEN_ONE_LINE_COMMENT,
         TOKEN_MULTI_LINE_COMMENT,
         TOKEN_NUMBER,
+        TOKEN_REAL_NUMBER,
         TOKEN_END_OF_FILE,
         TOKEN_UNKNOWN,
         TOKEN_ERROR
